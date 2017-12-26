@@ -1,0 +1,77 @@
+/*Feuille de style de COMPTEMPS DANSE*/
+
+/*GÉNÉRAL*/
+
+body {background:#BABABA;
+	background-position: 11%;
+	font-family:'Roboto', 'Comic Sans MS', cursive;
+	width:80%;
+	min-width:500px;
+	color: black;
+	left:150px;
+	margin:0px auto;}
+
+/*TITRES*/
+
+h1, h2, h3 {color: #50086A;}
+
+h2, h3 {text-align: left;}
+
+h1 {margin : 0px auto;
+	text-align: center;
+	font-size: 2.8em;
+	padding: 10px;}
+
+/*BALISES SÉMANTIQUES*/
+
+section {
+	margin-top: 50px;
+	background-color: white;
+	padding: 15px;}
+
+nav {float:top;}
+
+nav, h1, h2, article {background-color: white;}
+
+article {padding:5px;
+	margin: 5px;
+	text-align: justify;}
+
+header {position: fixed;
+	background-color: white;
+	top:0.01px;
+	padding: 5px; }
+
+/*LIENS*/
+
+a:link, a:visited {
+	color:black;
+	text-decoration: none;}
+
+a {	color: black;}
+
+li{list-style: none; }
+
+/*PIED DE PAGE*/
+
+footer {background-color:#BABABA;
+	color:#50086A;
+	height: 35px;
+	vertical-align: center;
+	text-align: center;
+	border-radius:5px;}
+
+footer a{
+	color: #50086A;
+}
+
+a.bouton {
+	font-size: 1.1em;
+	margin: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: 3px solid #50086A;
+	border-radius: 2px;
+}
