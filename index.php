@@ -1,9 +1,9 @@
 <?php session_start();
 include("include/Head.php");
-include("include/Menu.php"); 
-?>	
+include("include/Menu.php");
+?>
 	<div>Vous êtes ici : Accueil </div>
-	
+
 	<section>
 
 		<h2>Accueil</h2>
@@ -14,4 +14,4 @@ include("include/Menu.php");
 	</section>
 	<?php include("include/Footer.php");?>
 </body>
-</html>	
+</html>
