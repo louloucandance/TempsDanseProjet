@@ -1,0 +1,57 @@
+/*MENU*/
+#menu, #menu ul
+{
+    padding : 0;
+    margin : 0;
+    list-style : none;
+    line-height : 30px;
+    text-align : center; }
+
+
+#menu {
+    font-weight : bold;
+    font-size : 18px; }
+
+#menu a {
+    display : block;
+    padding : 0;
+    background : #50086A;
+    color : #fff;
+    text-decoration : none;
+    width : 300px;
+}
+
+#menu li /* Éléments des listes */
+{
+        float : left;
+        border-left: 1px solid #fff ;
+        border-right : 3px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+}
+
+
+#menu li ul /* Sous-listes */
+{
+        position: absolute;
+        width: 300px;
+        left: -999em;
+}
+
+
+#menu li ul li
+{
+        border-top :3px solid #fff;
+
+}
+
+
+#menu li ul ul
+{
+        margin    : -22px 0 0 300px ;
+        border-left: 3px solid #fff ;
+        border-right: 1px solid #fff ;
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul
+{
+        left: auto;
+}
