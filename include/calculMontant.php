@@ -5,12 +5,12 @@
 		$NBCours=$NombreCoursREQ["COUNT(*)"];
 		echo"<p>Nombre cours : $NBCours </p>";
 
-		switch ($NBCours) 
+		switch ($NBCours)
 		{
 			case '1':
 				if($EV)
 					{$t=270.0;}
-				elseif ($BS) 
+				elseif ($BS)
 					{$t=200.0;}
 				else
 					{$t=320.0;}
@@ -30,7 +30,7 @@
 		$Reduc=$Reducfetch['Reduction'];
 		if($Reduc!=NULL)
 		{
-			switch ($Reduc) 
+			switch ($Reduc)
 			{
 				case 'F2':
 					$t-=$t*0.2;
@@ -38,7 +38,7 @@
 				case 'F3':
 					$t-=$t*0.3;
 				break;
-				
+
 				default:
 					$t-=$t*0.1;
 				break;
