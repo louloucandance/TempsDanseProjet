@@ -29,6 +29,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     $Montant=$Montant;
    break;
   }
+  echo " montant par fréquence $Montant";
   // $ReqReduc = $bdd->query("SELECT Reduction FROM `adherent` WHERE `NumAdh`=$NumAdh");
   // $Reducfetch=$ReqReduc->fetch();
   // $Reduc=$Reducfetch['Reduction'];
