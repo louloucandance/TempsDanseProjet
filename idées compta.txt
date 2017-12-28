@@ -2,16 +2,17 @@
 
 * génération de la ligne comptable du paiement des élèves dans calculMontant
 (validation en cas qu'il n'y ait pas de paiement et liste des non payeurs)
-** faire la soustraction du montant payé au montant total dans la liste des non
-payeurs : exemple : Fifi a un montant (calculMontant) de 500€. il paye en
-mensuel, soit 50€ par mois (500/10, il faudra paramétrer chaque fréquence) et
-l'avoir dans les non payeurs avec 450€ à côté.
-** Mettre en haut ceux dont le mois est le plus ancien : si Aristote a pas payé
-depuis Mathusalem, il sera le premier.
-** Possibilité d'annuler une dette ou de rembourser de manière manuelle (si il
-paie tout d'un coup par exemple, ou 30€)
-**
+  ** faire la différence du montant payé et du total dans la liste des non
+  payeurs. ex : Fifi a un montant (calculMontant) de 500€. il paye en  mensuel,
+  soit 50€ par mois (500/10, il faudra paramétrer chaque fréquence) et  l'avoir
+  dans les non payeurs avec 450€ à côté.
+  ** Mettre en haut ceux dont le mois est le plus ancien : si Aristote a pas payé
+  depuis Mathusalem, il sera le premier.
+  ** Possibilité d'annuler une dette ou de rembourser de manière manuelle (si il
+  paie tout d'un coup par exemple, ou 30€)
+  **
 
+* ajouter une colonne 'montant payé' et 'montant dû' dans la table adhérent ?
 
 
 
