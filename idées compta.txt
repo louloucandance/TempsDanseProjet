@@ -1,4 +1,4 @@
-* affichage de la compta par mois  (cf listes de GestionAdh)
+* affichage de la compta par mois et par type de dépense (cf listes GestionAdh)
 
 * génération de la ligne comptable du paiement des élèves dans calculMontant
 (validation en cas qu'il n'y ait pas de paiement et liste des non payeurs)
@@ -10,11 +10,8 @@
   depuis Mathusalem, il sera le premier.
   ** Possibilité d'annuler une dette ou de rembourser de manière manuelle (si il
   paie tout d'un coup par exemple, ou 30€)
-  **
 
 * ajouter une colonne 'montant payé' et 'montant dû' dans la table adhérent ?
-
-
 
 
 

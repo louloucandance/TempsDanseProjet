@@ -10,7 +10,7 @@ include("include/Menu.php");
 		<p>Bienvenue dans le site de comptabilite et gestion de l'association Temps Danse</p>
 		<p>Ce site est <strong>SUR MESURE</strong> et simple d'utilisation.</p>
 		<p>Bonne compta :) </p>
-		
+
 	</section>
 	<?php include("include/Footer.php");?>
 </body>
