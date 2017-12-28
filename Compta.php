@@ -16,9 +16,9 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	$reponse = $bdd->query('SELECT * FROM Compta ORDER BY Date');
 	?>
 	<table>
-		<caption>Les adhérents de Temps Danse 65</caption>
+		<caption>Comptabilité</caption>
 		<tbody>
-			<tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Mode Paiement</th><th>Commentaire</th></tr>
+			<tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>
 
 
 			<?php
@@ -29,11 +29,11 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 				<tr>
 					<td><?php echo $donnees['Motif']; ?></td>
 					<td><?php echo $donnees['Montant']; ?></td>
-					<td><?php echo $donnees['Fréquence']; ?></td>
-					<td><?php echo $donnees['Fréquence']; ?></td>
+					<td><?php echo $donnees['Frequence']; ?></td>
 					<td><?php echo $donnees['Date']; ?></td>
 					<td><?php echo $donnees['ModePaiement']; ?></td>
 					<td><?php echo $donnees['Type']; ?></td>
+					<td><?php echo $donnees['Commentaire']; ?></td>
 				</tr>
 				<?php
 			}

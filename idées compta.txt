@@ -13,7 +13,8 @@
 
 * ajouter une colonne 'montant payé' et 'montant dû' dans la table adhérent ?
 
-
+*faire un fonction.php avec dedans calculMontant et fréquence et appeler les
+fonctions plutot que de faire des includes !
 
 
 

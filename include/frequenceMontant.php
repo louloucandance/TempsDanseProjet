@@ -4,7 +4,7 @@ include("/Head.php");
 include("/Menu.php");
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
   include("/ConnexionBDD.php");
-  $NumAdh=4
+  $NumAdh=2;
 	$Req = $bdd->query("SELECT `Montant`, `FrequencePaiement` FROM adherent WHERE `NumAdh`=$NumAdh");
 	$MontantREQ=$Req->fetch();
 	$Montant=$MontantREQ["Montant"];
@@ -18,7 +18,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     break;
   case 'Semestriel':
     $Montant/=2;
-    break
+    break;
   case 'Trimestriel':
      $Montant/=3;
      break;
