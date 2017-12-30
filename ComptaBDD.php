@@ -42,6 +42,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	if(isset($_POST["Commentaire"]))
 	{
 		$Commentaire=$_POST["Commentaire"];
+		echo "$Commentaire";
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id)");
 		echo "<p>Commentaire ajouté</p>";
 	}
@@ -54,7 +55,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	if(isset($_POST["Categorie"]))
 	{
 		$Commentaire=$_POST["Categorie"];
-		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id)");
+		$bdd->query("UPDATE `compta` SET `Catégorie`='$Categorie' WHERE `Id`=$Id)");
 		echo "<p>Catégorie ajouté</p>";
 	}
 
