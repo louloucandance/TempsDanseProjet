@@ -20,7 +20,6 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 		<tbody>
 			<tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>
 
-
 			<?php
 			while ($donnees = $reponse->fetch())
 			{
