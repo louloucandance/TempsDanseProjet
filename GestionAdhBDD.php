@@ -1,4 +1,4 @@
-<?php 
+<?php
 //Pour remettre AI à 0 : ALTER TABLE nomDeLaTable AUTO_INCREMENT=0
 include("include/Head.php");
 include("include/Menu.php");
@@ -15,7 +15,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 		<?php
 //Ajout de la Reduction
-	 
+
 		//Ajout des champs de Adhérents
 		$Prenom=$_POST["Prenom"];
 		$Nom=$_POST["Nom"];
@@ -50,11 +50,11 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 		include("include/calculMontant.php");
 
-		
+
 		?>
 		<!-- <p>Montant enregistré !</p>-->
-	<p><a href="GestionAdhForm">Enregistrer un nouvel adhérent</a> - <a href="GestionAdh">Gestion des adhérents</a> - <a href="GestionAdhMAJ">Mettre à jour un adhérent</a> </p>
+	<p><a href="GestionAdhForm.php">Enregistrer un nouvel adhérent</a> - <a href="GestionAdh.php">Gestion des adhérents</a> - <a href="GestionAdhMAJ.php">Mettre à jour un adhérent</a> </p>
 	</section>
 	<?php include("include/Footer.php");?>
 </body>
-</html>	
+</html>
