@@ -42,28 +42,25 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	if(isset($_POST["Commentaire"]))
 	{
 		$Commentaire=$_POST["Commentaire"];
-		echo "$Commentaire";
-		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id)");
+		echo "UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id";
+		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
 		echo "<p>Commentaire ajouté</p>";
 	}
 	if(isset($_POST["MoyenPaiement"]))
 	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
-		$bdd->query("UPDATE `compta` SET `MoyenPaiement`='$MoyenPaiement' WHERE Id=$Id)");
+		echo "UPDATE `compta` SET `MoyenPaiement`='$MoyenPaiement' WHERE Id=$Id";
+		$bdd->query("UPDATE `compta` SET `MoyenPaiement`='$MoyenPaiement' WHERE Id=$Id");
 		echo "<p>Moyen de paiement ajouté</p>";
 	}
 	if(isset($_POST["Categorie"]))
 	{
 		$Commentaire=$_POST["Categorie"];
-		$bdd->query("UPDATE `compta` SET `Catégorie`='$Categorie' WHERE `Id`=$Id)");
+		$bdd->query("UPDATE `compta` SET `Categorie`=$Categorie WHERE Id=$Id");
 		echo "<p>Catégorie ajouté</p>";
 	}
 
-
-
-
 	?>
-	<!-- <p>Montant enregistré !</p>-->
 	<p><a href="ComptaForm.php">Nouvelle ligne</a> - <a href="Compta.php">Ma comptabilité</a> - <a href="ComptaMAJ.php">Mettre à jour une ligne</a> </p>
 </section>
 <?php include("include/Footer.php");?>

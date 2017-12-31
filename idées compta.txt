@@ -20,3 +20,10 @@ fonctions plutot que de faire des includes !
 
 * doc : chercher la gestion des dates !!
 JavaScript ?
+
+
+TAF :
+* La gestion des dates
+* Le tableau des abonnés qui ont réglé leurs cotisations (index ?)
+* la partie compta
+* l'aide
