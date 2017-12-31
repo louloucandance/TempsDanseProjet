@@ -33,7 +33,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		echo "<p>$Motif : $Montant € le $Date ajouté !</p><p>Ligne numéro : $Id</p>";
 	}
 	else{
-		throw new Exception("Il y a $IdNb ligne déjà répondant à ces critères", 1);
+		throw new Exception("\n\nIl y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.\n", 1);
 	}
 	//AJOUT DE LA REDUCTION
 	$Commentaire=NULL;
@@ -42,21 +42,20 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	if(isset($_POST["Commentaire"]))
 	{
 		$Commentaire=$_POST["Commentaire"];
-		echo "UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id";
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
 		echo "<p>Commentaire ajouté</p>";
 	}
 	if(isset($_POST["MoyenPaiement"]))
 	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
-		echo "UPDATE `compta` SET `MoyenPaiement`='$MoyenPaiement' WHERE Id=$Id";
-		$bdd->query("UPDATE `compta` SET `MoyenPaiement`='$MoyenPaiement' WHERE Id=$Id");
+		$bdd->query("UPDATE `compta` SET `ModePaiement`='$MoyenPaiement' WHERE `Id`=$Id");
 		echo "<p>Moyen de paiement ajouté</p>";
 	}
 	if(isset($_POST["Categorie"]))
 	{
-		$Commentaire=$_POST["Categorie"];
-		$bdd->query("UPDATE `compta` SET `Categorie`=$Categorie WHERE Id=$Id");
+		$Categorie=$_POST["Categorie"];
+		echo "UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id";
+		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id");
 		echo "<p>Catégorie ajouté</p>";
 	}
 
