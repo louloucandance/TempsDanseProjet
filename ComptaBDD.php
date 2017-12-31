@@ -1,4 +1,8 @@
 <?php
+//l'entrée des valeurs est ok,
+//il faut cependant trouver une solution
+//au problèmes des nombres à virgules pour le montant...
+
 include("include/Head.php");
 include("include/Menu.php");
 
