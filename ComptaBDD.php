@@ -1,7 +1,5 @@
 <?php
-//l'entrée des valeurs est ok,
-//il faut cependant trouver une solution
-//au problèmes des nombres à virgules pour le montant...
+
 
 include("include/Head.php");
 include("include/Menu.php");
@@ -34,7 +32,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	$IdNb=$IdResultNb["COUNT(*)"];
 	if($IdNb==1){
 		$Id=$IdResult['Id'];
-		echo "<p>$Motif : $Montant € le $Date ajouté !</p><p>Ligne numéro : $Id</p>";
+		echo "<p>$Motif : $Montant € $Frequence le $Date ajouté !</p><p>Ligne numéro : $Id</p>";
 	}
 	else{
 		throw new Exception("\n\nIl y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.\n", 1);
@@ -47,20 +45,19 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	{
 		$Commentaire=$_POST["Commentaire"];
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
-		echo "<p>Commentaire ajouté</p>";
+		echo "<p>Commentaire $Commentaire ajouté ! </p>";
 	}
 	if(isset($_POST["MoyenPaiement"]))
 	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
 		$bdd->query("UPDATE `compta` SET `ModePaiement`='$MoyenPaiement' WHERE `Id`=$Id");
-		echo "<p>Moyen de paiement ajouté</p>";
+		echo "<p>Moyen de paiement $MoyenPaiement ajouté !</p>";
 	}
 	if(isset($_POST["Categorie"]))
 	{
 		$Categorie=$_POST["Categorie"];
-		echo "UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id";
 		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id");
-		echo "<p>Catégorie ajouté</p>";
+		echo "<p>Catégorie $Categorie ajoutée !</p>";
 	}
 
 	?>
