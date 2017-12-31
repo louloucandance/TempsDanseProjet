@@ -45,7 +45,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	{
 		$Commentaire=$_POST["Commentaire"];
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
-		echo "<p>Commentaire $Commentaire ajouté ! </p>";
+		echo "<p>Commentaire << $Commentaire >> ajouté ! </p>";
 	}
 	if(isset($_POST["MoyenPaiement"]))
 	{

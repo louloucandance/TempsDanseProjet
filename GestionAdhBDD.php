@@ -36,7 +36,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 			echo "<p>$Prenom $Nom ajouté !</p><p>Numéro d'adhérent attribué : $NumAdh</p>";
 		}
 		else{
-			throw new Exception("Il y a $NumAdhNB adhérents s'appellant $Prenom $Nom né $DateNaissance", 1);
+			throw new Exception("Il y a $NumAdhNB adhérent(s) s'appellant $Prenom $Nom né(s) $DateNaissance", 1);
 		}
 		//AJOUT DE LA REDUCTION
 		$Reduc=NULL;

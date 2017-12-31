@@ -20,7 +20,6 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 							<tr class="Form"><td class="Form"><label for="Montant"> Montant :  </label></td><td class="Form"><input required type="text" name="Montant" id="Montant" /></td></tr>
 						</table>
 						<p><strong>Fréquence : </strong></p>
-						<ul>
 							<select name="Frequence">
 
 								<?php
@@ -34,20 +33,17 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 								?>
 								</select>
 
-							</ul>
 							<p><strong>Type : </strong></p>
-							<ul>
+							<select name="Type">
 								<?php
 								$reponse = $bdd->query('SELECT * FROM typecompta');
 								while ($donnees = $reponse->fetch())
 								{
 									$Id=$donnees['Type'];
-									echo "<li class=\"Paiement\"><input type=\"radio\" name=\"Type\" value=\"$Id\" id=\"$Id\"/> <label for=\"$Id\">$Id</label></li>";
+									echo "<option value=\"$Id\"> $Id</option>";
 								}
 								$reponse->closeCursor();
 								?>
-							</ul>
-
 
 						</fieldset>
 					</td>
@@ -55,32 +51,33 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 					<td class="invisible">
 						<fieldset class="Cours"><legend>Facultatif</legend>
 							<p><strong>Moyen de Paiement : </strong></p>
-							<ul>
+							<select name="MoyenPaiement">
 								<?php
 								$reponse = $bdd->query('SELECT * FROM modepaiement');
 								while ($donnees = $reponse->fetch())
 								{
 									$Id=$donnees['IdPaiement'];
 									$Nom=$donnees['NomPaiement'];
-									echo "<li class=\"Paiement\"><input type=\"radio\" name=\"MoyenPaiement\" value=\"$Id\" id=\"$Id\"/> <label for=\"$Id\">$Nom</label></li>";
+									echo "<option value=\"$Id\">$Nom</option>";
 								}
 								$reponse->closeCursor();
 								?>
-							</ul>
+							</select>
 
 							<p><strong>Catégorie : </strong></p>
-							<ul>
+							<select name="Categorie">
 								<?php
-								$reponse = $bdd->query('SELECT * FROM categorie');
+								$reponse = $bdd->query('SELECT * FROM categorie ORDER BY Nom');
 								while ($donnees = $reponse->fetch())
 								{
 									$Id=$donnees['Nom'];
-									echo "<li class=\"Paiement\"><input type=\"radio\" name=\"Categorie\" value=\"$Id\" id=\"$Id\"/> <label for=\"$Id\">$Id</label></li>";
+									echo "<option value=\"$Id\">$Id</option>";
 								}
 								$reponse->closeCursor();
 								?>
-							</ul>
-							<textarea name="Commentaire" rows="4" cols="50">Commentaire...</textarea>
+							</select>
+							<p><strong>Commentaire :</strong></p>
+							<textarea name="Commentaire" rows="4" cols="50" placeholder="Votre commentaire doit être sans accent ni apostrophes !"></textarea>
 
 						</td>
 					</table>

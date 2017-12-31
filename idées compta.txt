@@ -27,3 +27,5 @@ TAF :
 * Le tableau des abonnés qui ont réglé leurs cotisations (index ?)
 * la partie compta
 * l'aide
+* export en PDF
+* comment entrer des apostrophes dans un textarea sans faire planter la requete sql
