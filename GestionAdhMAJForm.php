@@ -4,13 +4,13 @@ include("include/Menu.php");
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 $NumAdh=$_POST['Adh'];
 ?>
-<div>Vous êtes ici : <a href="index.html">Accueil</a> - <a href="GestionAdh.html">Gestion Adhérent</a> - Mise à Jour 2</div>
+<div>Vous êtes ici : <a href="index.php">Accueil</a> - <a href="GestionAdh.php">Gestion Adhérent</a> - Mise à Jour 2</div>
 
 <section>
 
 	<h2>Gestion des adhérents</h2>
 	<h3>Mises à jour Etape 2</h3>
-	<p>adhérent numéro : <?php echo $NumAdh?></p>
+	<p>Adhérent numéro : <?php echo $NumAdh?></p>
 	<form method="post" action="GestionAdhMAJBDD.php?Num=<?php echo $NumAdh;?>">
 	<?php
 	if(isset($_POST['typeAdmin']))

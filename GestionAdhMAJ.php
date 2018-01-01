@@ -4,7 +4,7 @@ include("include/Head.php");
 include("include/Menu.php");
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 ?>
-<div>Vous êtes ici : <a href="index.html">Accueil</a> - <a href="GestionAdh.html">Gestion Adhérent</a> -Mise à Jour 1</div>
+<div>Vous êtes ici : <a href="index.php">Accueil</a> - <a href="GestionAdh.php">Gestion Adhérent</a> -Mise à Jour 1</div>
 
 <section>
 

@@ -16,7 +16,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		<?php
 //Ajout de la Reduction
 
-		//Ajout des champs de Adhérents
+//Ajout des champs de Adhérents
 		$Prenom=$_POST["Prenom"];
 		$Nom=$_POST["Nom"];
 		$DateNaissance=$_POST["DateNaissance"];
@@ -47,9 +47,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 			echo "<p>Réduction $Reduc ajoutée</p>";
 		}
 		include("include/AjoutCours.php");
-
 		include("include/calculMontant.php");
-
 
 		?>
 		<!-- <p>Montant enregistré !</p>-->

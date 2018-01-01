@@ -15,7 +15,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 				<td class="invisible">
 					<fieldset class="Info"><legend>Nouvelle ligne</legend>
 						<table class="Form">
-							<tr class="Form"><td class="Form"><label for="Motif">Motif : </label></td><td class="Form"><input type="text" name="Motif" id="Motif" required />	</td></tr>
+							<tr class="Form"><td class="Form"><label for="Motif">Motif : </label></td><td class="Form"><input type="text" name="Motif" id="Motif" value="Valeur ?" required />	</td></tr>
 							<tr class="Form"><td class="Form"><label for="Date">Date : </label></td><td class="Form"><input type="text" name="Date" id="Date" required placeholder="aaaa-mm-jj"/></td></tr>
 							<tr class="Form"><td class="Form"><label for="Montant"> Montant :  </label></td><td class="Form"><input required type="text" name="Montant" id="Montant" /></td></tr>
 						</table>
@@ -44,6 +44,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 								}
 								$reponse->closeCursor();
 								?>
+							</select>
 
 						</fieldset>
 					</td>
@@ -77,11 +78,10 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 								?>
 							</select>
 							<p><strong>Commentaire :</strong></p>
-							<textarea name="Commentaire" rows="4" cols="50" placeholder="Votre commentaire doit être sans accent ni apostrophes !"></textarea>
+							<textarea name="Commentaire" size="140" rows="4" cols="50" placeholder="Votre commentaire doit être sans accent ni apostrophes !"></textarea>
 
 						</td>
 					</table>
-
 				</fieldset>
 				<input type="submit" name="Enregistrer !">
 			</form>
