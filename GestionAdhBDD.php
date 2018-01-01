@@ -43,7 +43,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		if(isset($_POST["Reduction"]))
 		{
 			$Reduc=$_POST["Reduction"];
-			$bdd->query("UPDATE `adherent` SET `Reduction`='$Reduc' WHERE NumAdh=$NumAdh)");
+			$bdd->query("UPDATE `adherent` SET `Reduction`='$Reduc' WHERE NumAdh=$NumAdh");
 			echo "<p>Réduction $Reduc ajoutée</p>";
 		}
 		include("include/AjoutCours.php");
