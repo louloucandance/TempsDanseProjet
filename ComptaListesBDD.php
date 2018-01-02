@@ -13,6 +13,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
   <?php
   $Requete="";
+
   if (isset($_POST['CategorieTri'])) {
     $CategorieTri=$_POST['CategorieTri'];
     $Categorie=$_POST['Categorie'];
@@ -53,10 +54,11 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     else {
       $Requete=$Requete." AND Frequence ='$Frequence'";
     }
-  }
-echo $Requete;
-
-    echo "<table><caption>Tableau trié<caption><tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>";
+  } ?>
+    <table>
+      <caption>Tableau trié<caption>
+        <tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>
+      <?php
     $reponse=$bdd->query("SELECT * FROM `compta` WHERE $Requete");
     while($donnees=$reponse->fetch()){ ?>
     <tr><td><?php echo $donnees['Motif']; ?></td>
@@ -65,7 +67,7 @@ echo $Requete;
     <td><?php echo $donnees['Date']; ?></td>
     <td><?php echo $donnees['ModePaiement']; ?></td>
     <td><?php echo $donnees['Type']; ?></td>
-    <td><?php echo $donnees['Commentaire']; ?></td></tr>";
+    <td><?php echo $donnees['Commentaire']; ?></td></tr>
   <?php }
   ?>
 </table>
