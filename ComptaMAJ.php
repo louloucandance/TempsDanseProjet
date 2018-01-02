@@ -11,7 +11,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	<h3>Mises à jour Etape 1</h3>
 
 	<form method="post" action="ComptaMAJForm.php">
-		<p>Choisissez votre ligne à modifier.</p>
+		<p>Choisissez une ligne comptable : </p>
 		<select name="Ligne">
 			<?php
 			$reponse=$bdd->query("SELECT * FROM compta");
@@ -21,6 +21,11 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 			$reponse->closeCursor();
 			?>
 		</select>
+		<br>
+		<p>Vous souhaitez : </p>
+
+		<input required type="radio" name="Action" value="Modifier" id="Modifier" /> <label for="Modifier">Modifier la ligne</label><br>
+		<input required type="radio" name="Action" value="Supprimer" id="Supprimer"/><label for="Supprimer">Supprimer la ligne</label><br><br>
 		<input type="submit" name="Enregistrer !">
 	</form>
 </section>

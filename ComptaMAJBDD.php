@@ -1,51 +1,37 @@
-<?php
+Montant<?php
 include('include/Head.php');
 include('include/Menu.php');
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
-$NumAdh=$_GET['Num']; ?>
+$Id=$_GET['Num']; ?>
 <div>Vous êtes ici : <a href='index.php'>Accueil</a> - <a href='GestionAdh.php'>Gestion Adhérent</a> - Mise à Jour 3</div>
 <section>
-	<h2>Gestion des adhérents</h2>
+	<h2>Comptabilité</h2>
 	<h3>Mises à jour Etape 3</h3>
-	<p> Numéro d'adhérent :	<?php echo $NumAdh; ?> </p>
+	<p> Numéro de ligne :	<?php echo $Id; ?> </p>
 	<?php
-	if(isset($_POST['Admin']))
+	if(isset($_POST['Ligne']))
 	{
-		$Nom=$_POST['Nom'];
-		$Prenom=$_POST['Prenom'];
-		$DTN=$_POST['DateNaissance'];
-		$Admin=$bdd->query("UPDATE adherent SET Nom='$Nom', Prenom='$Prenom', DateNaissance='$DTN' WHERE NumAdh=$NumAdh");
-		$Admin->closeCursor();
-	}
-	if(isset($_POST['Paiement']))
-	{
-		if(isset($_POST["Reduction"])){
-			$Reduc=$_POST["Reduction"];
-			$bdd->query("UPDATE `adherent` SET `Reduction`='$Reduc' WHERE NumAdh=$NumAdh");
-		}
-		else{
-			$Reduc=NULL;
-			$bdd->query("UPDATE `adherent` SET `Reduction`=NULL");
-		}
+		$Motif=$_POST['Motif'];
+		$Montant=$_POST['Montant'];
+		$Date=$_POST['Date'];
+		$ModePaiement=$_POST['ModePaiement'];
+		$Frequence = $_POST['Frequence'];
+		$Commentaire=$_POST['Commentaire'];
+		$Type=$_POST['Type'];
+		$Categorie=$_POST['Categorie'];
 
-		$Paiement=$_POST['Paiement'];
-		$Frequence=$_POST['Frequence'];
-		$Paiement=$bdd->query("UPDATE `adherent` SET `ModePaiement`='$Paiement',`FrequencePaiement`='$Frequence' WHERE `NumAdh`=$NumAdh");
-		$Paiement->closeCursor();
+		$MAJ=$bdd->query("UPDATE compta SET `Categorie`='$Categorie', `Type`='$Type', Motif='$Motif', `Commentaire`='$Commentaire', Montant=$Montant, `Date`='$Date', `ModePaiement`='$ModePaiement',`Frequence`='$Frequence' WHERE `Id`=$Id");
+		$MAJ->closeCursor();
+
+		echo "Modification effectuée !";
 	}
-	if(isset($_POST['Cours']))
-	{
-		$EffClasse=$bdd->query("DELETE FROM Classe WHERE `NumAdh`=$NumAdh");
-		$EffClasse->closeCursor();
-		include("include/AjoutCours.php");
-		include("include/calculMontant.php");
-	}
+
 
 	if(isset($_POST['Supprimer']))
 	{
 		if($_POST['Confirmer']=='OUI')
 		{
-			$EffAdh=$bdd->query("DELETE FROM Adherent WHERE `NumAdh`=$NumAdh");
+			$EffAdh=$bdd->query("DELETE FROM compta WHERE `Id`=$Id");
 			$EffAdh->closeCursor();
 			echo "Adhérent supprimé";
 		}

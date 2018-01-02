@@ -14,7 +14,7 @@ $NumAdh=$_POST['Adh'];
 	<form method="post" action="GestionAdhMAJBDD.php?Num=<?php echo $NumAdh;?>">
 	<?php
 	if(isset($_POST['typeAdmin']))
-	{?>
+	{ ?>
 		<fieldset><legend><input type="checkbox" name="Admin" checked>Changement administratif :</legend>
 		<table class="Form">
 			<tr class="Form"><td class="Form"><label for="Prenom">Prénom : </label></td><td class="Form"><input type="text" name="Prenom" id="Prenom" required />	</td></tr>
