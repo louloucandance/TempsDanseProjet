@@ -17,10 +17,10 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     $CategorieTri=$_POST['CategorieTri'];
     $Categorie=$_POST['Categorie'];
     if ($Requete=="") {
-      $Requete=$Requete."Categorie = $Categorie";
+      $Requete="Categorie = '$Categorie'";
     }
     else {
-      $Requete=$Requete." AND Categorie = $Categorie";
+      $Requete=$Requete." AND Categorie = '$Categorie'";
     }
 
   }
@@ -28,36 +28,36 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     $TypeTri=$_POST['TypeTri'];
     $Type=$_POST['Type'];
     if ($Requete=="") {
-      $Requete=$Requete."Type = $Type";
+      $Requete="Type = '$Type'";
     }
     else {
-      $Requete=$Requete." AND Type = $Type";
+      $Requete=$Requete." AND Type = '$Type'";
     }
   }
   if (isset($_POST['DateTri'])) {
     $DateTri=$_POST['DateTri'];
     $Date=$_POST['Date'];
     if ($Requete=="") {
-      $Requete=$Requete."Date = $Date";
+      $Requete="Date = '$Date'";
     }
     else {
-      $Requete=$Requete." AND Date = $Date";
+      $Requete=$Requete." AND Date = '$Date'";
     }
   }
   if (isset($_POST['FrequenceTri'])) {
     $FrequenceTri=$_POST['FrequenceTri'];
     $Frequence=$_POST['Frequence'];
     if ($Requete=="") {
-      $Requete=$Requete."Frequence = $Frequence";
+      $Requete="Frequence = '$Frequence'";
     }
     else {
-      $Requete=$Requete." AND Frequence = $Frequence";
+      $Requete=$Requete." AND Frequence ='$Frequence'";
     }
   }
-echo "$Requete";
+echo $Requete;
 
     echo "<table><caption>Tableau trié<caption><tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>";
-    $reponse=$bdd->query("SELECT * FROM `Compta` WHERE $Requete");
+    $reponse=$bdd->query("SELECT * FROM `compta` WHERE $Requete");
     while($donnees=$reponse->fetch()){ ?>
     <tr><td><?php echo $donnees['Motif']; ?></td>
     <td><?php echo $donnees['Montant']; ?></td>
@@ -68,7 +68,7 @@ echo "$Requete";
     <td><?php echo $donnees['Commentaire']; ?></td></tr>";
   <?php }
   ?>
-</table>?>
+</table>
 
 </section>
 <?php include("include/Footer.php");?>
