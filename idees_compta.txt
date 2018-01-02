@@ -29,3 +29,5 @@ TAF :
 * l'aide
 * export en PDF
 * comment entrer des apostrophes dans un textarea sans faire planter la requete sql
+* Utiliser les fonctions agrégats (cf cours création site p.177) pour faire un résumé
+* Cf le même cours quelques pages après pour les dates !!!
