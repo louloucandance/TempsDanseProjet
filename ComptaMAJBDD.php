@@ -1,4 +1,4 @@
-Montant<?php
+<?php
 include('include/Head.php');
 include('include/Menu.php');
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');

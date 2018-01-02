@@ -16,7 +16,7 @@
 			$chunks = explode ("_", $Cours);
 			list($Discipline, $Niveau) = explode("_", $Cours);
 			echo "<table><caption>$Discipline $Niveau<caption><tr><th>Nom</th><th>Prénom</th></tr>";
-			$reponse=$bdd->query("SELECT Nom, Prenom FROM `adherent` INNER JOIN `classe` ON adherent.`NumAdh` = classe.`NumAdh` WHERE classe.`Discipline`='BarreSol'
+			$reponse=$bdd->query("SELECT Nom, Prenom FROM `adherent` INNER JOIN `classe` ON adherent.`NumAdh` = classe.`NumAdh` WHERE classe.`Discipline`='$Discipline' AND `classe`.`Niveau`='$Niveau' ORDER BY Nom
 			");
 			while($Eleves=$reponse->fetch()){ ?>
 			<tr><td><?php echo $Eleves['Nom']."</td><td>".$Eleves['Prenom']."</td></tr>";
