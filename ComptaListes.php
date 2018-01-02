@@ -22,7 +22,9 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', ''); ?>
       <?php } $CategorieReq->closeCursor(); ?>
     </select><br><br>
 
-<!--PAR DATE :-->
+<!--PAR DATE :
+J'aimerai pouvoir choisir un intervalle (année, mois, trimestre) et apres choisir lequel exemple : MOIS - Janvier ou AN - 2017 ou PERIODE - 12-07 au 15-07...
+-->
     <input type="checkbox" name="DateTri" value="Date" id="Date"><label for="Date">Date :</label>
     <select name="Date">
       <?php
