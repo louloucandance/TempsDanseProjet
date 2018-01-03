@@ -1,7 +1,4 @@
 <?php
-//Requete d'ajout = INSERT INTO `AlerteAdh`(`NumAdh`, `Date`, `Montant`) VALUES ($NumAdh,$Date,$Montant)
-//Récupération du numéro d'adhérent : automatique car inclus dans un document PHP
-$NumAdh=5;//Pour l'exemple
 
 //Montant :
 include("include/frequenceMontant.php");

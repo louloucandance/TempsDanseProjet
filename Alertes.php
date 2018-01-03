@@ -41,21 +41,35 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
   		</tbody></table>
     </td>
     <td class="invisible">
+
       <table>
         <caption>Comptabilité</caption>
         <tbody>
           <tr><th>Num alerte</th><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
           <?php
-          $reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE CURRENT_DATE>`Date` ORDER BY `Date` ');
+          $IdLigne=33;
+          include('include/AjoutAlerteCompta.php');
+          $IdLigne=38;
+          include('include/AjoutAlerteCompta.php');
+          $IdLigne=40;
+          include('include/AjoutAlerteCompta.php');
+          //$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE CURRENT_DATE<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 2 MONTH)>`Date` ORDER BY `Date` ');
+          $reponse=$bdd->query('SELECT * FROM `alertecompta` ORDER BY `Date` ');
           while ($donnees = $reponse->fetch())
           {
-            $numero=$donnees['NumAdh'];
-            $AdhReq=$bdd->query("SELECT Nom, Prenom FROM adherent WHERE NumAdh=$numero");
+            $IdLigne=$donnees['IdLigne'];
+            $AdhReq=$bdd->query("SELECT Motif, Type FROM compta WHERE Id=$IdLigne");
             $Adh=$AdhReq->fetch();
+            $Type=$Adh['Type'];
+            if($Type=='Recette'){
+              echo "<tr class=\"Vert\">";
+            }
+            else {
+              echo "<tr class=\"Rouge\">";
+            }
             ?>
-            <tr>
               <td><?php echo $donnees['IdAlerte']; ?></td>
-              <td><?php echo $Adh['Nom']." ".$Adh['Prenom']; ?></td>
+              <td><?php echo $Adh['Motif']; ?></td>
               <td><?php echo $donnees['Date']; ?></td>
               <td><?php echo $donnees['Montant']; ?></td>
             </tr>
@@ -66,6 +80,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
           ?>
         </tbody></table>
     </td>
+  </tr>
 	</section>
 	<?php include("include/Footer.php");?>
 </body>

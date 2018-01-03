@@ -2,7 +2,7 @@
 table {
 	text-align : center;
   border-collapse : collapse;
-  border: 3px solid darkgrey;
+  border: 3px solid #222222;
   margin: 15px;
   padding: 3px;}
 
@@ -42,4 +42,11 @@ caption{
 	padding: 0px;
 	width: 340px;
 	border-color: white;
+}
+
+.Vert{
+	background-color: green;
+}
+.Rouge{
+	background-color: red;
 }

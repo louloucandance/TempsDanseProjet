@@ -1,17 +1,9 @@
 <?php
-//Requete d'ajout = INSERT INTO `alertecompta`(`IdLigne`, `Date`, `Montant`) VALUES ($IdLigne,$Date,$Montant)
-//Récupération du numéro d'adhérent : automatique car inclus dans un document PHP
-$IdLigne=5;//Pour l'exemple
-
-//Montant :
-include("include/frequenceMontant.php");
-//$Montant correspond au montant par "mensualité"
-//$MontantTotal correspond au montant total de la cotisation.
-//$Frequence correspond à la string qui donne la frequence
-//Faire les dates :
-$Req = $bdd->query("SELECT `DateInscription` FROM adherent WHERE `IdLigne`=$IdLigne");
-$DateREQ=$Req->fetch();
-$Date=$DateREQ["DateInscription"];
+$Req = $bdd->query("SELECT * FROM compta WHERE `Id`=$IdLigne");
+$LigneREQ=$Req->fetch();
+$Date=$LigneREQ["Date"];
+$Montant=$LigneREQ["Montant"];
+$Frequence=$LigneREQ["Frequence"];
 switch ($Frequence)
 {
   case 'Quotidien':
@@ -55,7 +47,7 @@ switch ($Frequence)
     $bdd->query("INSERT INTO `alertecompta`(`IdLigne`, `Date`, `Montant`) VALUES ($IdLigne, DATE_ADD('$Date', INTERVAL $i YEAR), $Montant)");
   }
   break;
-  
+
   default:
   $bdd->query("INSERT INTO `alertecompta`(`IdLigne`, `Date`, `Montant`) VALUES ($IdLigne, '$Date', $Montant)");
   break;
