@@ -25,6 +25,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 		//INSERTION DE L'ADHERENT DANS LA BDD
 		$bdd->query("INSERT INTO `adherent`(`Nom`, `Prenom`, `DateNaissance`, `ModePaiement`, `FrequencePaiement`) VALUES ('$Nom', '$Prenom', '$DateNaissance', '$ModePaiement', '$FrequencePaiement')");
+
 		//RECUPERATION DU NUMERO ADHERENT
 		$Reponse = $bdd->query("SELECT NumAdh FROM adherent WHERE `Nom`='$Nom' AND `Prenom`='$Prenom' AND `DateNaissance`='$DateNaissance'");
 		$NumAdhResult=$Reponse->fetch();
@@ -38,6 +39,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		else{
 			throw new Exception("Il y a $NumAdhNB adhérent(s) s'appellant $Prenom $Nom né(s) $DateNaissance", 1);
 		}
+
 		//AJOUT DE LA REDUCTION
 		$Reduc=NULL;
 		if(isset($_POST["Reduction"]))
@@ -48,8 +50,10 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		}
 		include("include/AjoutCours.php");
 		include("include/calculMontant.php");
+		include ("include/AjoutAlerte.php");
 
 		?>
+
 		<!-- <p>Montant enregistré !</p>-->
 	<p><a href="GestionAdhForm.php">Enregistrer un nouvel adhérent</a> - <a href="GestionAdh.php">Gestion des adhérents</a> - <a href="GestionAdhMAJ.php">Mettre à jour un adhérent</a> </p>
 	</section>

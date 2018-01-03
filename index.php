@@ -11,6 +11,8 @@ include("include/Menu.php");
 		<p>Ce site est <strong>SUR MESURE</strong> et simple d'utilisation.</p>
 		<p>Bonne compta :) </p>
 
+		<h3>Mes alertes :</h3>
+
 	</section>
 	<?php include("include/Footer.php");?>
 </body>
