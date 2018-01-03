@@ -15,6 +15,9 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	<?php
 	$reponse = $bdd->query('SELECT * FROM Compta ORDER BY Date');
 	?>
+	<table class="invisible">
+		<tr class="invisible">
+			<td class="invisible">
 	<table>
 		<caption>Comptabilité</caption>
 		<tbody>
@@ -39,6 +42,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 			$reponse->closeCursor(); // Termine le traitement de la requête
 			?>
 		</tbody></table>
+
 
 	</section>
 	<?php include("include/Footer.php");?>

@@ -10,9 +10,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	<h2>Nouvelle ligne compta</h2>
 
 	<form method="post" action="ComptaBDD.php">
-		<table class="invisible">
-			<tr class="invisible">
-				<td class="invisible">
+		
 					<fieldset class="Info"><legend>Nouvelle ligne</legend>
 						<table class="Form">
 							<tr class="Form"><td class="Form"><label for="Motif">Motif : </label></td><td class="Form"><input type="text" name="Motif" id="Motif" required />	</td></tr>

@@ -50,7 +50,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		}
 		include("include/AjoutCours.php");
 		include("include/calculMontant.php");
-		include ("include/AjoutAlerte.php");
+		include("include/AjoutAlerteAdh.php");
 
 		?>
 
