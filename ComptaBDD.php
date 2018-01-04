@@ -59,10 +59,14 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id");
 		echo "<p>Catégorie $Categorie ajoutée !</p>";
 	}
+	include('include/AjoutAlerteCompta.php');
 
 	?>
 	<p><a href="ComptaForm.php">Nouvelle ligne</a> - <a href="Compta.php">Ma comptabilité</a> - <a href="ComptaMAJ.php">Mettre à jour une ligne</a> </p>
 </section>
-<?php include("include/Footer.php");?>
+<?php
+$IdLigne=$Id;
+include("include/Footer.php");
+?>
 </body>
 </html>
