@@ -38,7 +38,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 									<td><?php echo $Adh['Nom']." ".$Adh['Prenom']; ?></td>
 									<td><?php echo $donnees['Date']; ?></td>
 									<td><?php echo $donnees['Montant']; ?></td>
-									<td><a href="??????????????????">Supprimer</a><a href="??????????">Ajouter ligne</a></td>
+									<td><a href="SupprimerAlerte.php?Id=<?php echo $donnees['IdAlerte'];?>,A='adh'">Supprimer</a><a href="??????????">Ajouter ligne</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
@@ -69,10 +69,12 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 										echo "<tr class=\"Rouge\">";
 									}
 									?>
+
 									<td><?php echo $donnees['IdAlerte']; ?></td>
 									<td><?php echo $Adh['Motif']; ?></td>
 									<td><?php echo $donnees['Date']; ?></td>
 									<td><?php echo $donnees['Montant']; ?></td>
+									<td><a href="SupprimerAlerte.php?<?php echo "Id=$donnees['IdAlerte'],A=compta";?>">Supprimer</a><a href="??????????">Ajouter ligne</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
