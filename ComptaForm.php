@@ -6,23 +6,25 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 //Seulement si on traite une alerte :
 $Value=isset($_GET['Id']);
 if($Value){
-	$Id=$_GET['Id'];
+	$idLigne=$_GET['Id'];
 	$Action = $_GET['A'];
 	$Date=$_GET['Date'];
 	$Compta=($Action=='compta');
 	$Adh=($Action=='adh');
 	if ($Compta) {
-		$AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$Id");
+		$AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$idLigne");
 		$Ligne=$AdhReq->fetch();
 		$Motif=$Ligne['Motif'];
+		$Frequence=$Ligne['Frequence'];
 		}
 	if($Adh){
-		$AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$Id");
+		$AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$idLigne");
 		$Ligne=$AdhReq->fetch();
-		$Nom=$Ligne['Nom']." ".$Ligne['Prenom'];
+		$Motif=$Ligne['Nom']." ".$Ligne['Prenom'];
+		$Frequence=$Ligne['FrequencePaiement'];
 	}
-	$Frequence=$Ligne['Frequence'];
 	$Montant=$Ligne['Montant'];
+	$ModePaiement=$Ligne['ModePaiement'];
 }
 
 ?>
@@ -40,13 +42,7 @@ if($Value){
 							<tr class="Form"><td class="Form"><label for="Motif">Motif : </label></td><td class="Form"><input type="text"
 								<?php
 								if ($Value) {
-									if ($Compta) {
 										echo "value='$Motif'";
-									}
-									elseif ($Adh) {
-										echo "value='$Nom'";
-									}
-
 								}
 								?> name="Motif" id="Motif" required />	</td></tr>
 							<tr class="Form"><td class="Form"><label for="Date">Date : </label></td><td class="Form"><input type="text"
@@ -64,14 +60,15 @@ if($Value){
 						</table>
 						<p><strong>Fréquence : </strong></p>
 							<select name="Frequence" <?php
-							if ($Value) {
-									echo "value='$Frequence'";
-							}
+
 							echo ">";
 								$reponse = $bdd->query('SELECT * FROM frequence');
 								while ($donnees = $reponse->fetch())
 								{
 									$freq=$donnees['NomFrequence'];
+									if ($Value) {
+											if($freq)
+									}
 									echo "<option required value=\"$freq\">$freq</option>";
 								}
 								$reponse->closeCursor();
@@ -105,6 +102,9 @@ if($Value){
 								{
 									$Id=$donnees['IdPaiement'];
 									$Nom=$donnees['NomPaiement'];
+									if ($Id==$ModePaiement) {
+										echo "<option autofocus value=\"$Id\">$Nom</option>";
+									}
 									echo "<option value=\"$Id\">$Nom</option>";
 								}
 								$reponse->closeCursor();
