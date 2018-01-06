@@ -16,6 +16,9 @@
 *faire un fonction.php avec dedans calculMontant et fréquence et appeler les
 fonctions plutot que de faire des includes !
 
+*Utiliser le javascript pour créer dynamiquement les variables session et ne pas
+passer par l'url (pour les alertes)
+  ça doit etre possible avec un add event listenner 
 
 
 * doc : chercher la gestion des dates !!
