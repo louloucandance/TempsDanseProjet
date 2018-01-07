@@ -46,7 +46,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 										<!--traitement de l'alerte : Idem pour l'URL, et on la traite
 									en ajoutant une nouvelle ligne comptable dans le formulaire normal
 								qui se prérempli automatiquement (in comming)-->
-										<a href="ComptaForm.php?Id=
+										<a href="ComptaForm2.php?Id=
 										<?php echo $Adh['NumAdh'];?>&Date=<?php echo $donnees['Date'];?>
 										&A=adh">Ajouter ligne</a></td>
 								</tr>
