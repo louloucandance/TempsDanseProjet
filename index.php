@@ -24,7 +24,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 					<table>
 						<caption>Adhérents</caption>
 						<tbody>
-							<tr><th>Num alerte</th><th>Adhérent</th><th>Date</th><th>Montant</th><th>Action</th></tr>
+							<tr><th>Adhérent</th><th>Date</th><th>Montant</th><th>Action</th></tr>
 							<?php
 							$reponse=$bdd->query('SELECT * FROM `alerteadh` WHERE CURRENT_DATE>`Date` ORDER BY `Date` ');
 							while ($donnees = $reponse->fetch())
@@ -34,7 +34,6 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 								$Adh=$AdhReq->fetch();
 								?>
 								<tr>
-									<td><?php echo $donnees['IdAlerte']; ?></td>
 									<td><?php echo $Adh['Nom']." ".$Adh['Prenom']; ?></td>
 									<td><?php echo $donnees['Date']; ?></td>
 									<td><?php echo $donnees['Montant']; ?></td>
@@ -42,13 +41,13 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 								l'alerte et on la supprime dans SupprimerAlerte.php-->
 									<td><a href="SupprimerAlerte.php?Id=
 										<?php echo $donnees['IdAlerte'];?>
-										&A=adh">Supprimer</a> -
+										&A=adh">Supprimer</a>
 										<!--traitement de l'alerte : Idem pour l'URL, et on la traite
-									en ajoutant une nouvelle ligne comptable dans le formulaire normal
-								qui se prérempli automatiquement (in comming)-->
+									en ajoutant une nouvelle ligne comptable dans le formulaire de nouvelle
+								ligne qui se prérempli. c'est le formulaire ComptaForm2.php-->
 										<a href="ComptaForm2.php?Id=
 										<?php echo $Adh['NumAdh'];?>&Date=<?php echo $donnees['Date'];?>
-										&A=adh">Ajouter ligne</a></td>
+										&A=adh">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
@@ -62,7 +61,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 						<table>
 							<caption>Comptabilité</caption>
 							<tbody>
-								<tr><th>Num alerte</th><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
+								<tr><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
 								<?php
 								$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE CURRENT_DATE<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)>`Date` ORDER BY `Date` ');
 								while ($donnees = $reponse->fetch())
@@ -71,26 +70,24 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 									$AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$IdLigne");
 									$Adh=$AdhReq->fetch();
 									$Type=$Adh['Type'];
+									echo "<tr>";
 									if($Type=='Recette'){
-										echo "<tr class=\"Vert\">";
+										?><td class="Vert"><?php echo $Adh['Motif']; ?></td><?php
 									}
 									else {
-										echo "<tr class=\"Rouge\">";
+										?><td class="Rouge"><?php echo $Adh['Motif']; ?></td><?php
 									}
 									?>
-
-									<td><?php echo $donnees['IdAlerte']; ?></td>
-									<td><?php echo $Adh['Motif']; ?></td>
 									<td><?php echo $donnees['Date']; ?></td>
 									<td><?php echo $donnees['Montant']; ?></td>
+
 									<!--Suppression de l'alerte-->
-									<td><a href="SupprimerAlerte.php?Id=
-										<?php echo $donnees['IdAlerte'];?>
+									<td><a href="SupprimerAlerte.php?Id=<?php echo $donnees['IdAlerte'];?>
 										&A=compta">Supprimer</a>
+
 										<!--traitement de l'alerte-->
-										<a href="ComptaForm.php?Id=
-										<?php echo $Adh['Id'];?>&Date=<?php echo $donnees['Date'];?>
-										&A=adh">Ajouter ligne</a></td>
+										<a href="ComptaForm2.php?Id=<?php echo $Adh['Id'];?>&Date=<?php echo $donnees['Date'];?>
+										&A=compta">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();

@@ -2,7 +2,7 @@
 table {
 	text-align : center;
   border-collapse : collapse;
-  border: 3px solid #222222;
+  border: 2px solid #333333;
   margin: 15px;
   padding: 3px;}
 
@@ -10,13 +10,15 @@ td {
 	padding: 2px;
 	vertical-align: middle;
 	border: 1px solid grey;
-	padding: 2px;
-  font-size: smaller;}
+	padding: 4px;
+}
 
 th {
 	padding:2px;
 	color:#50086A;
-	padding: 2px;}
+	padding: 2px;
+	border: 1px solide grey;
+}
 
 tr {color : black;}
 
@@ -27,7 +29,7 @@ caption{
 }
 
 .invisible{
-	width: 700px;
+	width: 1500px;
 	border-width: 0px;
 	text-align: left;
 	padding: 20px;
@@ -45,8 +47,10 @@ caption{
 }
 
 .Vert{
-	background-color: green;
+	box-shadow: -1px 2px 10px 3px rgba(0, 155, 0, 0.3) inset;
+	color: green;
 }
 .Rouge{
-	background-color: red;
+	box-shadow: -1px 2px 10px 3px rgba(155, 0, 0, 0.3) inset;
+	color: red;
 }

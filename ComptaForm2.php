@@ -14,12 +14,14 @@ if ($Compta) {
   $Ligne=$AdhReq->fetch();
   $Motif=$Ligne['Motif'];
   $Frequence=$Ligne['Frequence'];
+  $Categorie=$Ligne['Categorie'];
 }
 if($Adh){
   $AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$idLigne");
   $Ligne=$AdhReq->fetch();
   $Motif=$Ligne['Nom']." ".$Ligne['Prenom'];
   $Frequence=$Ligne['FrequencePaiement'];
+  $Categorie='Adherent';
 }
 $Montant=$Ligne['Montant'];
 $ModePaiement=$Ligne['ModePaiement'];
@@ -33,6 +35,7 @@ $_SESSION['Alerte']=true;
 <section>
 
   <h2>Nouvelle ligne compta</h2>
+  <p><strong>ATTENTION : </strong> Cette ligne comptable a été générée à partir d'une alerte. Veuillez vérifier attentivement les informations préremplies.</p>
 
   <form method="post" action="ComptaBDD.php">
 
@@ -70,15 +73,15 @@ $_SESSION['Alerte']=true;
             <p><strong>Type : </strong></p>
             <select name="Type">
               <?php
-              $reponse = $bdd->query('SELECT * FROM typecompta');
               if ($Adh) {
                 echo "<option value=\"Recette\"> Recette</option>";
                 echo "<option value=\"Depense\"> Depense</option>";
               }
-              if ($compta) {
+              else {
+                $reponse = $bdd->query('SELECT * FROM typecompta');
                 while ($donnees = $reponse->fetch()) {
                   $Id=$donnees['Type'];
-                  echo "<option value=\"$Id\"> $Id</option>";
+                  echo "<option value=$Id> $Id</option>";
                 }
               }
               $reponse->closeCursor();
@@ -124,16 +127,16 @@ $_SESSION['Alerte']=true;
               <select name="Categorie">
 
                 <?php
-                $reponse = $bdd->query('SELECT * FROM categorie ORDER BY Nom');
-                  if ($Adh) {
-                    echo "<option value=Adherent>Adherent</option>";
-                  }
 
+                echo "<option required value=$Categorie>$Categorie</option>";
+
+
+                $reponse = $bdd->query('SELECT * FROM categorie ORDER BY Nom');
                 while ($donnees = $reponse->fetch())
                 {
-                  if (!($donnees['Nom']=='Adherent' AND $Adh)) {
-                    $Categorie=$donnees['Nom'];
-                    echo "<option value=\"$Categorie\">$Categorie</option>";
+                  $Cat=$donnees['Nom'];
+                  if ($Categorie!=$Cat) {
+                    echo "<option value=\"$Cat\">$Cat</option>";
                   }
                 }
                 $reponse->closeCursor();
@@ -142,9 +145,7 @@ $_SESSION['Alerte']=true;
 
 <!--Commentaire-->
               <p><strong>Commentaire :</strong></p>
-              <textarea name="Commentaire" size="140" rows="4" cols="50" placeholder="Votre commentaire doit être sans accent ni apostrophes !">
-Ligne comptable générée à partir d'une alerte. Vérifiez tout attentivement les informations, elles peuvent ne pas être exactes.
-            </textarea>
+              <textarea name="Commentaire" size="140" rows="4" cols="50" placeholder="Votre commentaire doit être sans accent ni apostrophes !"></textarea>
           </td>
         </table>
       </fieldset>

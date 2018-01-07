@@ -23,51 +23,48 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	$Type=$_POST["Type"];
 
 	//INSERTION DE L'ADHERENT DANS LA BDD
+	$Requete = $bdd->query("SELECT COUNT(*) FROM compta WHERE `Motif`='$Motif' AND `Date`='$Date' AND `Montant`='$Montant' AND Frequence='$Frequence' AND Type='$Type'");
+	$IdResultNb=$Requete->fetch();
+	$Requete->closeCursor();
+	$IdNb=$IdResultNb["COUNT(*)"];
+	if($IdNb!=0){
+		throw new Exception("  Il y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.  ", 1);
+	}
 	$bdd->query("INSERT INTO `compta`(`Motif`, `Montant`, `Type`, `Frequence`, `Date`) VALUES ('$Motif',$Montant,'$Type','$Frequence','$Date')");
 	$Reponse = $bdd->query("SELECT `Id` FROM `compta` WHERE `Motif`='$Motif' AND `Date`='$Date' AND `Montant`='$Montant' AND Frequence='$Frequence' AND Type='$Type'");
 	$IdResult=$Reponse->fetch();
-	$Requete = $bdd->query("SELECT COUNT(*) FROM compta WHERE `Motif`='$Motif' AND `Date`='$Date' AND `Montant`='$Montant' AND Frequence='$Frequence' AND Type='$Type'");
-	$IdResultNb=$Requete->fetch();
-	$IdNb=$IdResultNb["COUNT(*)"];
-	if($IdNb==1){
-		$Id=$IdResult['Id'];
-		echo "<p>$Motif : $Montant € $Frequence le $Date ajouté !</p><p>Ligne numéro : $Id</p>";
-	}
-	else{
-		throw new Exception("\n\nIl y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.\n", 1);
-	}
+	$Id=$IdResult['Id'];
 	//AJOUT DE LA REDUCTION
 	$Commentaire=NULL;
 	$MoyenPaiement=NULL;
 	$Categorie=NULL;
-	if(isset($_POST["Commentaire"]))
-	{
+	if(isset($_POST["Commentaire"])){
 		$Commentaire=$_POST["Commentaire"];
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
 		echo "<p>Commentaire << $Commentaire >> ajouté ! </p>";
 	}
-	if(isset($_POST["MoyenPaiement"]))
-	{
+	if(isset($_POST["MoyenPaiement"]))	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
 		$bdd->query("UPDATE `compta` SET `ModePaiement`='$MoyenPaiement' WHERE `Id`=$Id");
 		echo "<p>Moyen de paiement $MoyenPaiement ajouté !</p>";
 	}
-	if(isset($_POST["Categorie"]))
-	{
+	if(isset($_POST["Categorie"])){
 		$Categorie=$_POST["Categorie"];
 		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id");
 		echo "<p>Catégorie $Categorie ajoutée !</p>";
 	}
-	if(!$_SESSION['Alerte']){
-		include('include/AjoutAlerteCompta.php');
-	}
-
-
 	?>
 	<p><a href="ComptaForm.php">Nouvelle ligne</a> - <a href="Compta.php">Ma comptabilité</a> - <a href="ComptaMAJ.php">Mettre à jour une ligne</a> </p>
 </section>
 <?php
 $IdLigne=$Id;
+
+if(!$_SESSION['Alerte']){
+	include('include/AjoutAlerteCompta.php');
+}
+else {
+
+}
 include("include/Footer.php");
 ?>
 </body>
