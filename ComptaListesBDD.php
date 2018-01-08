@@ -37,13 +37,35 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
   }
   if (isset($_POST['DateTri'])) {
     $DateTri=$_POST['DateTri'];
-    $Date=$_POST['Date'];
+    $DateR=$_POST['Date'];
+    switch ($DateR) {
+      case '1M':
+        $Date="`Date`>DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)";
+        break;
+      case '1T':
+        $Date="`Date`>DATE_SUB(CURRENT_DATE, INTERVAL 3 MONTH)";
+        break;
+      case '1S':
+        $Date="`Date`>DATE_SUB(CURRENT_DATE, INTERVAL 6 MONTH)";
+        break;
+      case '1A':
+        $Date="`Date`>DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR)";
+        break;
+      case '2M':
+        $Date="`Date`>DATE_SUB(CURRENT_DATE, INTERVAL 2 MONTH)";
+        break;
+
+      default:
+      $Date="CURRENT_DATE";
+        break;
+    }
     if ($Requete=="") {
-      $Requete="Date = '$Date'";
+      $Requete="$Date";
     }
     else {
-      $Requete=$Requete." AND Date = '$Date'";
+      $Requete=$Requete." AND $Date";
     }
+
   }
   if (isset($_POST['FrequenceTri'])) {
     $FrequenceTri=$_POST['FrequenceTri'];
@@ -54,7 +76,8 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
     else {
       $Requete=$Requete." AND Frequence ='$Frequence'";
     }
-  } ?>
+  }
+  ?>
     <table>
       <caption>Tableau trié<caption>
         <tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Type</th><th>Commentaire</th></tr>

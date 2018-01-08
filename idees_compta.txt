@@ -18,11 +18,16 @@ fonctions plutot que de faire des includes !
 
 *Utiliser le javascript pour créer dynamiquement les variables session et ne pas
 passer par l'url (pour les alertes)
-  ça doit etre possible avec un add event listenner 
+  ça doit etre possible avec un add event listenner
 
 
 * doc : chercher la gestion des dates !!
 JavaScript ?
+
+*Supprimer l'alerte quand on l'a traitée !
+*Adh alertev : le montant est le montant total et non le périodique
+*Compta : Les noms des mode paiement et non les id
+
 
 
 TAF :
@@ -34,3 +39,14 @@ TAF :
 * comment entrer des apostrophes dans un textarea sans faire planter la requete sql
 * Utiliser les fonctions agrégats (cf cours création site p.177) pour faire un résumé
 * Cf le même cours quelques pages après pour les dates !!! CURDATE() -> date aujourd'hui
+
+
+
+
+EXPORT EN PDF : 
+
+http://api.pdflayer.com/api/convert
+
+    ? access_key = 87fd17e153e7a1ce6337e6295cc60b52
+    & document_url = https://pdflayer.com/downloads/invoice.html
+    & page_size = A4
