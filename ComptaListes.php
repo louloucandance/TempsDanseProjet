@@ -8,7 +8,6 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', ''); ?>
   <h3>Mes tableaux comptables</h3>
 
 
-
   <form action="ComptaListesBDD.php" method="POST">
     <p>Choississez le filtre à appliquer à votre comptabilité : </p>
     <p>Pour ce faire, sélectionner votre filtre avec les boîtes à cocher, puis choississez la valeur de celui ci dans les listes déroulantes.
@@ -25,9 +24,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', ''); ?>
       <?php } $CategorieReq->closeCursor(); ?>
     </select><br><br>
 
-<!--PAR DATE :
-J'aimerai pouvoir choisir un intervalle (année, mois, trimestre) et apres choisir lequel exemple : MOIS - Janvier ou AN - 2017 ou PERIODE - 12-07 au 15-07...
--->
+<!--PAR DATE :-->
     <input type="checkbox" name="DateTri" value="Date" id="Date"><label for="Date">Date :</label>
     <select name="Date">
       <option value="1M"> Depuis un mois </option>
@@ -59,10 +56,12 @@ J'aimerai pouvoir choisir un intervalle (année, mois, trimestre) et apres chois
       <?php } $TypeReq->closeCursor(); ?>
     </select><br><br>
 
+
+
+
+
     <input type="submit" name="Envoyer !"/>
   </form>
-
-
 
 </section>
 <?php include("include/Footer.php"); ?>

@@ -1,0 +1,29 @@
+/*TABLEAU*/
+table {
+	text-align : center;
+  border-collapse : collapse;
+  border: 2px solid black;
+  margin: 10px;
+  padding: 3px;}
+
+td {
+	padding: 2px;
+	vertical-align: middle;
+	border: 1px solid black;
+	padding: 4px;
+}
+
+th {
+	padding:2px;
+	color:black;
+	padding: 2px;
+	border: 1px solid black;
+}
+
+tr {color : black;}
+
+caption{
+	margin-top: 20px;
+	font-size: 1.3em;
+	padding-bottom: 10px;
+}

@@ -38,15 +38,11 @@ TAF :
 * export en PDF
 * comment entrer des apostrophes dans un textarea sans faire planter la requete sql
 * Utiliser les fonctions agrégats (cf cours création site p.177) pour faire un résumé
-* Cf le même cours quelques pages après pour les dates !!! CURDATE() -> date aujourd'hui
+* Cf le même cours quelques pages après pour les dates !!!
 
 
 
 
-EXPORT EN PDF : 
-
-http://api.pdflayer.com/api/convert
-
-    ? access_key = 87fd17e153e7a1ce6337e6295cc60b52
-    & document_url = https://pdflayer.com/downloads/invoice.html
-    & page_size = A4
+EXPORT EN PDF :
+https://pdflayer.com/dashboard
+http://api.pdflayer.com/api/convert?access_key = 87fd17e153e7a1ce6337e6295cc60b52&document_url=https://pdflayer.com/downloads/invoice.html&page_size = A4

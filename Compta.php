@@ -12,45 +12,52 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	<a class="bouton" href="ComptaMAJ.php">Corriger ma comptabilité</a>
 	<a class="bouton" href="ComptaListes.php">Ma comptabilité</a>
 
+	<!--BILAN :-->
+	<a href="Bilan.php" target="_blank">Produire le bilan</a>
+
 	<?php
 	$reponse = $bdd->query('SELECT * FROM Compta ORDER BY `Date`'); //Ordre décroissant des dates, ca doit etre DESC mas o menos
 	?>
 	<table class="invisible">
 		<tr class="invisible">
 			<td class="invisible">
-	<table>
-		<caption>Comptabilité</caption>
-		<tbody>
-			<tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Commentaire</th></tr>
+				<table>
+					<caption>Comptabilité</caption>
+					<tbody>
+						<tr><th>Motif</th><th>Montant</th><th>Fréquence</th><th>Date</th><th>Mode Paiement</th><th>Commentaire</th></tr>
 
-			<?php
-			while ($donnees = $reponse->fetch())
-			{
-				$Motif=$donnees['Motif'];
-				?>
-				<tr><?php
-					if($donnees['Type']=='Recette'){
-						?><td class="Vert"><?php echo $donnees['Motif']; ?></td><?php
+						<?php
+						while ($donnees = $reponse->fetch())
+						{
+							$Motif=$donnees['Motif'];
+							?>
+							<tr><?php
+							if($donnees['Type']=='Recette'){
+								?><td class="Vert"><?php echo $donnees['Motif']; ?></td><?php
+							}
+							else {
+								?><td class="Rouge"><?php echo $donnees['Motif']; ?></td><?php
+							}
+							?>
+							<td><?php echo $donnees['Montant']; ?></td>
+							<td><?php echo $donnees['Frequence']; ?></td>
+							<td><?php echo $donnees['Date']; ?></td>
+							<td><?php echo $donnees['ModePaiement']; ?></td>
+							<td><?php echo $donnees['Commentaire']; ?></td>
+						</tr>
+						<?php
 					}
-					else {
-						?><td class="Rouge"><?php echo $donnees['Motif']; ?></td><?php
-					}
+					$reponse->closeCursor(); // Termine le traitement de la requête
 					?>
-					<td><?php echo $donnees['Montant']; ?></td>
-					<td><?php echo $donnees['Frequence']; ?></td>
-					<td><?php echo $donnees['Date']; ?></td>
-					<td><?php echo $donnees['ModePaiement']; ?></td>
-					<td><?php echo $donnees['Commentaire']; ?></td>
-				</tr>
-				<?php
-			}
-			$reponse->closeCursor(); // Termine le traitement de la requête
-			?>
-		</tbody></table>
+				</tbody></table>
+			</td>
+		</tr>
+	</table>
 
 
-	</section>
-	<?php include("include/Footer.php");?>
+
+</section>
+<?php include("include/Footer.php");?>
 </body>
 </html>
 </form>
