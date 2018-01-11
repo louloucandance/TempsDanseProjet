@@ -63,7 +63,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 							<tbody>
 								<tr><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
 								<?php
-								$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE CURRENT_DATE<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)>`Date` ORDER BY `Date` ');
+								$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE DATE_SUB(CURRENT_DATE, INTERVAL 2 MONTH)<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 3 MONTH)>`Date` ORDER BY `Date` ');
 								while ($donnees = $reponse->fetch())
 								{
 									$IdLigne=$donnees['IdLigne'];

@@ -13,7 +13,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 	<a class="bouton" href="ComptaListes.php">Ma comptabilité</a>
 
 	<!--BILAN :-->
-	<a href="Bilan.php" target="_blank">Produire le bilan</a>
+	<a class="bouton" href="Bilan.php" target="_blank">Produire le bilan</a>
 
 	<?php
 	$reponse = $bdd->query('SELECT * FROM Compta ORDER BY `Date`'); //Ordre décroissant des dates, ca doit etre DESC mas o menos
