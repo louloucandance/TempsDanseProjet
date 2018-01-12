@@ -14,11 +14,10 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 	<?php
 
-
 	//Ajout des champs de compta
-	$Motif=$_POST["Motif"];
-	$Date=$_POST["Date"];
-	$Montant=$_POST["Montant"];
+	$Motif=htmlspecialchars($_POST["Motif"]);
+	$Date=htmlspecialchars($_POST["Date"]);
+	$Montant=htmlspecialchars($_POST["Montant"]);
 	$Frequence=$_POST["Frequence"];
 	$Type=$_POST["Type"];
 
@@ -39,9 +38,8 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	$MoyenPaiement=NULL;
 	$Categorie=NULL;
 	if(isset($_POST["Commentaire"])){
-		$Commentaire=$_POST["Commentaire"];
+		$Commentaire=htmlspecialchars($_POST["Commentaire"]);
 		$bdd->query("UPDATE `compta` SET `Commentaire`='$Commentaire' WHERE Id=$Id");
-		echo "<p>Commentaire << $Commentaire >> ajouté ! </p>";
 	}
 	if(isset($_POST["MoyenPaiement"]))	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
@@ -63,7 +61,8 @@ if(!$_SESSION['Alerte']){
 	include('include/AjoutAlerteCompta.php');
 }
 else {
-
+	$Alerte=$_SESSION['Alerte'];
+	$bdd->query("DELETE FROM `alertecompta` WHERE `IdAlerte`=$Alerte");
 }
 include("include/Footer.php");
 ?>

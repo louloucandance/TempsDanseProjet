@@ -8,20 +8,20 @@ $Frequence=$MontantREQ["FrequencePaiement"];
 switch ($Frequence)
 {
   case 'Mensuel':
-  $Montant/=10;
-  break;
+    $Montant/=10;
+    break;
   case 'Semestriel':
-  $Montant/=2;
-  break;
+    $Montant/=2;
+    break;
   case 'Trimestriel':
-  $Montant/=3;
-  break;
+    $Montant/=3;
+    break;
   case 'Bimestriel':
-  $Montant/=5;
-  break;
+    $Montant/=5;
+    break;
   default:
-  $Montant=$Montant;
-  break;
-}
+    $Montant=$Montant;
+    break;
+  }
 $Req->closeCursor();
 ?>

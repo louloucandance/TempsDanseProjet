@@ -1,6 +1,6 @@
-* affichage de la compta par mois et par type de dépense (cf listes GestionAdh)
+affichage de la compta par mois et par type de dépense (cf listes GestionAdh)
 
-* génération de la ligne comptable du paiement des élèves dans calculMontant
+génération de la ligne comptable du paiement des élèves dans calculMontant
 (validation en cas qu'il n'y ait pas de paiement et liste des non payeurs)
   ** faire la différence du montant payé et du total dans la liste des non
   payeurs. ex : Fifi a un montant (calculMontant) de 500€. il paye en  mensuel,
@@ -11,13 +11,10 @@
   ** Possibilité d'annuler une dette ou de rembourser de manière manuelle (si il
   paie tout d'un coup par exemple, ou 30€)
 
-* ajouter une colonne 'montant payé' et 'montant dû' dans la table adhérent ?
-
-*faire un fonction.php avec dedans calculMontant et fréquence et appeler les
-fonctions plutot que de faire des includes !
+ajouter une colonne 'montant payé' et 'montant dû' dans la table adhérent ?
 
 *Utiliser le javascript pour créer dynamiquement les variables session et ne pas
-passer par l'url (pour les alertes)
+passer par l'url (pour les alertes) -> hidden p 100 creation Site
   ça doit etre possible avec un add event listenner
 
 
@@ -26,23 +23,22 @@ JavaScript ?
 
 *Supprimer l'alerte quand on l'a traitée !
 *Adh alertev : le montant est le montant total et non le périodique
-*Compta : Les noms des mode paiement et non les id
 
 
 
 TAF :
-* La gestion des dates
-* Le tableau des abonnés qui ont réglé leurs cotisations (index ?)
-* la partie compta
-* l'aide
+La gestion des dates
+Le tableau des abonnés qui ont réglé leurs cotisations (index ?)
+la partie compta
+l'aide
 * export en PDF
 * comment entrer des apostrophes dans un textarea sans faire planter la requete sql
-* Utiliser les fonctions agrégats (cf cours création site p.177) pour faire un résumé
-* Cf le même cours quelques pages après pour les dates !!!
+Utiliser les fonctions agrégats (cf cours création site p.177) pour faire un résumé
+Cf le même cours quelques pages après pour les dates !!!
 
 
 
 
 EXPORT EN PDF :
 https://pdflayer.com/dashboard
-http://api.pdflayer.com/api/convert?access_key = 87fd17e153e7a1ce6337e6295cc60b52&document_url=https://pdflayer.com/downloads/invoice.html&page_size = A4
+http://api.pdflayer.com/api/convert?access_key=87fd17e153e7a1ce6337e6295cc60b52&document_url=https://pdflayer.com/downloads/invoice.html&page_size=A4

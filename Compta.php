@@ -42,7 +42,11 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
 							<td><?php echo $donnees['Montant']; ?></td>
 							<td><?php echo $donnees['Frequence']; ?></td>
 							<td><?php echo $donnees['Date']; ?></td>
-							<td><?php echo $donnees['ModePaiement']; ?></td>
+							<td><?php
+							$Paiement=$donnees['ModePaiement'];
+							$req=$bdd->query("SELECT NomPaiement FROM modepaiement WHERE IdPaiement = '$Paiement'");
+							$tab=$req->fetch();
+							echo $tab['NomPaiement']; ?></td>
 							<td><?php echo $donnees['Commentaire']; ?></td>
 						</tr>
 						<?php

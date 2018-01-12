@@ -17,9 +17,9 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 //Ajout de la Reduction
 
 //Ajout des champs de Adhérents
-		$Prenom=$_POST["Prenom"];
-		$Nom=$_POST["Nom"];
-		$DateNaissance=$_POST["DateNaissance"];
+		$Prenom=htmlspecialchars($_POST["Prenom"]);
+		$Nom=htmlspecialchars($_POST["Nom"]);
+		$DateNaissance=htmlspecialchars($_POST["DateNaissance"]);
 		$FrequencePaiement=$_POST["Frequence"];
 		$ModePaiement=$_POST["Paiement"];
 

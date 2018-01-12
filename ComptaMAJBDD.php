@@ -38,7 +38,9 @@ $Id=$_GET['Num']; ?>
 		else {
 			echo "Adhérent non supprimé";
 		}
-	} ?>
+	}
+	$EffAlerte=$bdd->query("DELETE FROM alertecompta WHERE IdLigne=$Id");
+	include("include/AjoutAlerteCompta");?>
 
 </section>
 <?php include("include/Footer.php"); ?>

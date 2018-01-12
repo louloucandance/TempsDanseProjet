@@ -15,15 +15,13 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 		if($_SESSION['Action']=='compta')		{
 			$id=$_SESSION['Id'];
-			$EffAdh=$bdd->query("DELETE FROM `alertecompta` WHERE `IdAlerte`=$id");
-			$EffAdh->closeCursor();
+			$bdd->query("DELETE FROM `alertecompta` WHERE `IdAlerte`=$id");
 			echo "<p>Alerte supprimée</p>";
 		}
 
 		if($_SESSION['Action']=='adh')		{
 			$id=$_SESSION['Id'];
-			$EffAdh=$bdd->query("DELETE FROM alerteadh WHERE `IdAlerte`=$id");
-			$EffAdh->closeCursor();
+			$bdd->query("DELETE FROM alerteadh WHERE `IdAlerte`=$id");
 			echo "<p>Alerte supprimée</p>";
 		}
 		session_destroy();

@@ -14,8 +14,7 @@ $NumAdh=$_GET['Num']; ?>
 		$Nom=$_POST['Nom'];
 		$Prenom=$_POST['Prenom'];
 		$DTN=$_POST['DateNaissance'];
-		$Admin=$bdd->query("UPDATE adherent SET Nom='$Nom', Prenom='$Prenom', DateNaissance='$DTN' WHERE NumAdh=$NumAdh");
-		$Admin->closeCursor();
+		$bdd->query("UPDATE adherent SET Nom='$Nom', Prenom='$Prenom', DateNaissance='$DTN' WHERE NumAdh=$NumAdh");
 	}
 	if(isset($_POST['Paiement']))
 	{
@@ -30,8 +29,7 @@ $NumAdh=$_GET['Num']; ?>
 
 		$Paiement=$_POST['Paiement'];
 		$Frequence=$_POST['Frequence'];
-		$Paiement=$bdd->query("UPDATE `adherent` SET `ModePaiement`='$Paiement',`FrequencePaiement`='$Frequence' WHERE `NumAdh`=$NumAdh");
-		$Paiement->closeCursor();
+		$bdd->query("UPDATE `adherent` SET `ModePaiement`='$Paiement',`FrequencePaiement`='$Frequence' WHERE `NumAdh`=$NumAdh");
 	}
 	if(isset($_POST['Cours']))
 	{
@@ -52,7 +50,16 @@ $NumAdh=$_GET['Num']; ?>
 		else {
 			echo "Adhérent non supprimé";
 		}
-	} ?>
+	}
+	if(!$_SESSION['Alerte']){
+		include('include/AjoutAlerteAdh.php');
+	}
+	else {
+		$bdd->query("DELETE FROM `alerteCompta` WHERE `IdAlerte`=$_SESSION['Alerte']");
+		$bdd->query("DELETE FROM alertecompta WHERE NumAdh=$NumAdh");
+		include("include/AjoutAlerteAdh");
+} ?>
+
 
 </section>
 <?php include("include/Footer.php"); ?>

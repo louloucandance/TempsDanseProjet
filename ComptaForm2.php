@@ -26,6 +26,7 @@ if($Adh){
 $Montant=$Ligne['Montant'];
 $ModePaiement=$Ligne['ModePaiement'];
 $_SESSION['Alerte']=true;
+$_SESSION['NumAlerte']=$_GET['NumAlerte'];
 
 
 ?>

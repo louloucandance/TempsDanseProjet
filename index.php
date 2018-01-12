@@ -30,6 +30,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 							while ($donnees = $reponse->fetch())
 							{
 								$numero=$donnees['NumAdh'];
+								$idAlerte=
 								$AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$numero");
 								$Adh=$AdhReq->fetch();
 								?>
@@ -46,8 +47,8 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 									en ajoutant une nouvelle ligne comptable dans le formulaire de nouvelle
 								ligne qui se prérempli. c'est le formulaire ComptaForm2.php-->
 										<a href="ComptaForm2.php?Id=
-										<?php echo $Adh['NumAdh'];?>&Date=<?php echo $donnees['Date'];?>
-										&A=adh">Traiter</a></td>
+										<?php echo $numero;?>&Date=<?php echo $donnees['Date'];?>
+										&A=adh&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
@@ -87,7 +88,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 										<!--traitement de l'alerte-->
 										<a href="ComptaForm2.php?Id=<?php echo $Adh['Id'];?>&Date=<?php echo $donnees['Date'];?>
-										&A=compta">Traiter</a></td>
+										&A=compta&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
