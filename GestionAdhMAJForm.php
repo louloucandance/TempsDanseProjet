@@ -43,7 +43,7 @@ $NumAdh=$_POST['Adh'];
 				<li class="Paiement"><input required type="radio" name="Frequence" value="Mensuel" id="Mens" /> <label for="Mens">Mensuel</label></li>
 				<li class="Paiement"><input required type="radio" name="Frequence" value="Bimestriel" id="Bi" /> <label for="Bi">Bimestriel</label></li>
 				<li class="Paiement"><input required type="radio" name="Frequence" value="Trimestriel" id="Tri" /> <label for="Tri">Trimestriel</label> </li>
-				<li class="Paiement"><inputrequired type="radio" name="Frequence" value="Semestriel" id="Se" /> <label for="Se">Semestriel</label> </li>
+				<li class="Paiement"><input required type="radio" name="Frequence" value="Semestriel" id="Se" /> <label for="Se">Semestriel</label> </li>
 				<li class="Paiement"><input required type="radio" name="Frequence" value="Annuel" id="An" /> <label for="An">Annuel</label> </li>
 			</ul>
 			<p><strong>Moyen de Paiement : </strong></p>

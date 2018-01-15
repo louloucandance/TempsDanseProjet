@@ -46,9 +46,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 										<!--traitement de l'alerte : Idem pour l'URL, et on la traite
 									en ajoutant une nouvelle ligne comptable dans le formulaire de nouvelle
 								ligne qui se prérempli. c'est le formulaire ComptaForm2.php-->
-										<a href="ComptaForm2.php?Id=
-										<?php echo $numero;?>&Date=<?php echo $donnees['Date'];?>
-										&A=adh&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
+										<a href="ComptaForm2.php?A=adh&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();
@@ -65,8 +63,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 								<tr><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
 								<?php
 								$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE DATE_SUB(CURRENT_DATE, INTERVAL 2 MONTH)<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 3 MONTH)>`Date` ORDER BY `Date` ');
-								while ($donnees = $reponse->fetch())
-								{
+								while ($donnees = $reponse->fetch()){ //PROBLEME : ON A TOUJOURS LA PREMIERE ALERTE QUAND ON RECUPERE LES DONNEES DANS LE COMPTABDD !!!!!!!
 									$IdLigne=$donnees['IdLigne'];
 									$AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$IdLigne");
 									$Adh=$AdhReq->fetch();
@@ -87,8 +84,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 										&A=compta">Supprimer</a>
 
 										<!--traitement de l'alerte-->
-										<a href="ComptaForm2.php?Id=<?php echo $Adh['Id'];?>&Date=<?php echo $donnees['Date'];?>
-										&A=compta&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
+										<a href="ComptaForm2.php?A=compta&NumAlerte=<?php echo $donnees['IdAlerte'];?>">Traiter</a></td>
 								</tr>
 								<?php
 								$AdhReq->closeCursor();

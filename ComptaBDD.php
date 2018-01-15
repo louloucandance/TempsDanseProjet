@@ -61,8 +61,9 @@ if(!$_SESSION['Alerte']){
 	include('include/AjoutAlerteCompta.php');
 }
 else {
-	$Alerte=$_SESSION['Alerte'];
+	$Alerte=$_SESSION['NumAlerte'];
 	$bdd->query("DELETE FROM `alertecompta` WHERE `IdAlerte`=$Alerte");
+	$bdd->query("DELETE FROM `alerteadh` WHERE `IdAlerte`=$Alerte");
 }
 include("include/Footer.php");
 ?>

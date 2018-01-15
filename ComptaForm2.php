@@ -4,29 +4,41 @@ include("include/Head.php");
 include("include/Menu.php");
 $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
-$idLigne=$_GET['Id'];
-$Action = $_GET['A'];
-$Date=$_GET['Date'];
-$Compta=($Action=='compta');
-$Adh=($Action=='adh');
+$_SESSION['NumAlerte']=$_GET['NumAlerte'];
+$NumAlerte=$_SESSION['NumAlerte'];
+$Compta=($_GET['A']=='compta');
+$Adh=($_GET['A']=='adh');
 if ($Compta) {
-  $AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$idLigne");
+  $AlerteReq=$bdd->query("SELECT * FROM alertecompta WHERE IdAlerte=$NumAlerte");
+}
+elseif ($Adh){
+  $AlerteReq=$bdd->query("SELECT * FROM alerteadh WHERE IdAlerte=$NumAlerte");
+}
+
+$AlerteTab=$AlerteReq->fetch();
+$Date=$AlerteTab['Date'];
+$Montant=$AlerteTab['Montant'];
+$_SESSION['Alerte']=true;
+
+if ($Compta) {
+  $idLigne=$AlerteTab['IdLigne'];
+  $AdhReq=$bdd->query("SELECT * FROM compta WHERE Id=$idLigne"); //ERREUR : il faut reload pour que ca marche, pk ??????
   $Ligne=$AdhReq->fetch();
   $Motif=$Ligne['Motif'];
   $Frequence=$Ligne['Frequence'];
   $Categorie=$Ligne['Categorie'];
 }
 if($Adh){
-  $AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$idLigne");
+  $idLigne=$AlerteTab['NumAdh'];
+  $AdhReq=$bdd->query("SELECT * FROM adherent WHERE NumAdh=$idLigne"); //ERREUR : idem
   $Ligne=$AdhReq->fetch();
   $Motif=$Ligne['Nom']." ".$Ligne['Prenom'];
   $Frequence=$Ligne['FrequencePaiement'];
   $Categorie='Adherent';
 }
-$Montant=$Ligne['Montant'];
+
 $ModePaiement=$Ligne['ModePaiement'];
-$_SESSION['Alerte']=true;
-$_SESSION['NumAlerte']=$_GET['NumAlerte'];
+
 
 
 ?>
@@ -152,11 +164,6 @@ $_SESSION['NumAlerte']=$_GET['NumAlerte'];
       </fieldset>
       <input type="submit" name="Enregistrer !">
     </form>
-
-
-
-
-
   </section>
   <?php include("include/Footer.php");?>
 </body>

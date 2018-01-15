@@ -2,10 +2,9 @@
 <?php
 //Fonction ajouter cours
 function AjouterCours($Num, $Discipline, $Niveau){
-	echo "<p>Numero d'adhérent : $Num pour le cours $Discipline $Niveau  ...  "; 
+	echo "<p>Numero d'adhérent : $Num pour le cours $Discipline $Niveau  ...  ";
 	$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
-	$req=$bdd->prepare("INSERT INTO `classe` (`NumAdh`, `Discipline`, `Niveau`) VALUES ($Num, '$Discipline', '$Niveau')");
-	$req->execute();
+	$req=$bdd->query("INSERT INTO `classe` (`NumAdh`, `Discipline`, `Niveau`) VALUES ($Num, '$Discipline', '$Niveau')");
 	echo 'Cours Ajouté !</p>';
 }
 //COURS
@@ -36,7 +35,7 @@ function AjouterCours($Num, $Discipline, $Niveau){
 		AjouterCours($NumAdh, "Jazz", "Superieur");
 	}
 	if(isset($_POST["JaEnf"])) {
-		AjouterCours($NumAdh, "Jazz", "Enfant");	
+		AjouterCours($NumAdh, "Jazz", "Enfant");
 	}
 	if(isset($_POST["JaAdu"])) {
 		AjouterCours($NumAdh, "Jazz", "Adulte");
@@ -51,19 +50,19 @@ function AjouterCours($Num, $Discipline, $Niveau){
 		AjouterCours($NumAdh, "Classique", "Enfant");
 	}
 	if (isset($_POST["ClaPrep"])) {
-		AjouterCours($NumAdh, "Classique", "Prepatoire");
+		AjouterCours($NumAdh, "Classique", "Preparatoire");
 	}
 	if(isset($_POST["StAdo"])) {
-		AjouterCours($NumAdh, "StreetJazz", "Ado");			
+		AjouterCours($NumAdh, "StreetJazz", "Ado");
 	}
 	if (isset($_POST["StSup"])) {
 		AjouterCours($NumAdh, "StreetJazz", "Superieur");
 	}
 	if (isset($_POST["P1"])) {
-		AjouterCours($NumAdh, "Pointes", "Niveau1");
+		AjouterCours($NumAdh, "Pointe", "Niveau1");
 	}
 	if (isset($_POST["P2"])) {
-		AjouterCours($NumAdh, "Pointes", "Niveau2");
+		AjouterCours($NumAdh, "Pointe", "Niveau2");
 	}
 
 ?>

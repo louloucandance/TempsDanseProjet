@@ -51,14 +51,10 @@ $NumAdh=$_GET['Num']; ?>
 			echo "Adhérent non supprimé";
 		}
 	}
-	if(!$_SESSION['Alerte']){
-		include('include/AjoutAlerteAdh.php');
-	}
-	else {
-		$bdd->query("DELETE FROM `alerteCompta` WHERE `IdAlerte`=$_SESSION['Alerte']");
-		$bdd->query("DELETE FROM alertecompta WHERE NumAdh=$NumAdh");
-		include("include/AjoutAlerteAdh");
-} ?>
+
+	$bdd->query("DELETE FROM alerteadh WHERE NumAdh=$NumAdh");
+	include("include/AjoutAlerteAdh.php");
+ ?>
 
 
 </section>
