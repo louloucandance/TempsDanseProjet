@@ -44,5 +44,4 @@
 				break;
 			}
 		}
-		echo "<p>Montant : ".$t."</p>";
 		$bdd->query("UPDATE `adherent` SET`Montant`=$t WHERE NumAdh=$NumAdh");?>

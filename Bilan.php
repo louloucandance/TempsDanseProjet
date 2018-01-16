@@ -32,17 +32,17 @@
             $TotalMensuel = $TotalMensuelRecette - $TotalMensuelDepense;
             echo "<td class='Total'>$TotalMensuel</td>";
             $k++;
-        }
-        $TotalAnnuelRecetteReq=$bdd->query("SELECT SUM(`Montant`) AS AnnuelRecette FROM compta WHERE Type='Recette' AND YEAR(`Date`)=$Annee");
-        $TotalAnnuelDepenseReq=$bdd->query("SELECT SUM(`Montant`) AS AnnuelDepense FROM compta WHERE Type='Depense' AND YEAR(`Date`)=$Annee");
-        $TotalAnnuelRecetteTab=$TotalAnnuelRecetteReq->fetch();
-        $TotalAnnuelDepenseTab=$TotalAnnuelDepenseReq->fetch();
-        $TotalAnnuelRecette=$TotalAnnuelRecetteTab['AnnuelRecette'];
-        $TotalAnnuelDepense=$TotalAnnuelDepenseTab['AnnuelDepense'];
-        $TotalAnnuel = $TotalAnnuelRecette - $TotalAnnuelDepense;
-        echo "<td class='Total'> $TotalAnnuel </td>";
+          }
+          $TotalAnnuelRecetteReq=$bdd->query("SELECT SUM(`Montant`) AS AnnuelRecette FROM compta WHERE Type='Recette' AND YEAR(`Date`)=$Annee");
+          $TotalAnnuelDepenseReq=$bdd->query("SELECT SUM(`Montant`) AS AnnuelDepense FROM compta WHERE Type='Depense' AND YEAR(`Date`)=$Annee");
+          $TotalAnnuelRecetteTab=$TotalAnnuelRecetteReq->fetch();
+          $TotalAnnuelDepenseTab=$TotalAnnuelDepenseReq->fetch();
+          $TotalAnnuelRecette=$TotalAnnuelRecetteTab['AnnuelRecette'];
+          $TotalAnnuelDepense=$TotalAnnuelDepenseTab['AnnuelDepense'];
+          $TotalAnnuel = $TotalAnnuelRecette - $TotalAnnuelDepense;
+          echo "<td class='Total'> $TotalAnnuel </td>";
 
-           ?>
+          ?>
 
         </tr>
       </tfoot>

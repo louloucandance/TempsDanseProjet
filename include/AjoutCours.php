@@ -2,10 +2,8 @@
 <?php
 //Fonction ajouter cours
 function AjouterCours($Num, $Discipline, $Niveau){
-	echo "<p>Numero d'adhérent : $Num pour le cours $Discipline $Niveau  ...  ";
 	$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 	$req=$bdd->query("INSERT INTO `classe` (`NumAdh`, `Discipline`, `Niveau`) VALUES ($Num, '$Discipline', '$Niveau')");
-	echo 'Cours Ajouté !</p>';
 }
 //COURS
 

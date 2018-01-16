@@ -9,6 +9,18 @@ $Id=$_GET['Num']; ?>
 	<h3>Mises à jour Etape 3</h3>
 	<p> Numéro de ligne :	<?php echo $Id; ?> </p>
 	<?php
+	if(isset($_POST['Supprimer']))
+	{
+		if($_POST['Confirmer']=='OUI')
+		{
+			$bdd->query("DELETE FROM compta WHERE `Id`=$Id");
+			$bdd->query("DELETE FROM alertecompta WHERE IdLigne=$Id");
+			echo "Adhérent supprimé";
+		}
+		else {
+			echo "Adhérent non supprimé";
+		}
+		else{
 	if(isset($_POST['Ligne']))
 	{
 		$Motif=$_POST['Motif'];
@@ -27,21 +39,11 @@ $Id=$_GET['Num']; ?>
 	}
 
 
-	if(isset($_POST['Supprimer']))
-	{
-		if($_POST['Confirmer']=='OUI')
-		{
-			$EffAdh=$bdd->query("DELETE FROM compta WHERE `Id`=$Id");
-			$EffAdh->closeCursor();
-			echo "Adhérent supprimé";
-		}
-		else {
-			echo "Adhérent non supprimé";
-		}
-	}
-	$EffAlerte=$bdd->query("DELETE FROM alertecompta WHERE IdLigne=$Id");
-	include("include/AjoutAlerteCompta");?>
 
+	}
+	$bdd->query("DELETE FROM alertecompta WHERE IdLigne=$Id");
+	include("include/AjoutAlerteCompta");?>
+}
 </section>
 <?php include("include/Footer.php"); ?>
 </body>

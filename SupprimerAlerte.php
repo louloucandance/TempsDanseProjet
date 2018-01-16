@@ -11,7 +11,6 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 	<?php
 	if (isset($_POST['OUI'])) {
-		echo $_SESSION['Action'];
 
 		if($_SESSION['Action']=='compta')		{
 			$id=$_SESSION['Id'];
