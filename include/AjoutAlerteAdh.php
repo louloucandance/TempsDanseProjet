@@ -32,7 +32,8 @@ switch ($Frequence)
   }
   break;
   default:
-  $Montant=$Montant;
+  $bdd->query("INSERT INTO `alerteadh`(`NumAdh`, `Date`, `Montant`) VALUES ($NumAdh,'$Date', $Montant)");
   break;
 }
+$bdd->query("INSERT INTO `alerteadh`(`NumAdh`, `Date`, `Montant`) VALUES ($NumAdh, '$Date', 10)");
 ?>

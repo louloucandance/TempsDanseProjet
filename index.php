@@ -26,7 +26,7 @@ include("include/Menu.php");
 						<tbody>
 							<tr><th>Adhérent</th><th>Date</th><th>Montant</th><th>Action</th></tr>
 							<?php
-							$reponse=$bdd->query('SELECT * FROM `alerteadh` WHERE CURRENT_DATE>`Date` ORDER BY `Date` ');
+							$reponse=$bdd->query('SELECT * FROM `alerteadh` WHERE CURRENT_DATE>`Date` ORDER BY `Date` DESC ');
 							while ($donnees = $reponse->fetch())
 							{
 								$numero=$donnees['NumAdh'];
