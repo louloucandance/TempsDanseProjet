@@ -3,8 +3,7 @@
 include("include/Head.php");
 include("include/Menu.php");
 
-//Connexion à la BDD
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 
 //Fil d'Arianne et titres
 ?>

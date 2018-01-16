@@ -4,7 +4,7 @@ include("include/Head.php");
 include("include/Menu.php");
 
 //Connexion à la BDD
- 
+
 //Fil d'Arianne et titres
 ?>
 <div>Vous êtes ici : <a href="index.php">Accueil</a> - Ajout d'une ligne</div>

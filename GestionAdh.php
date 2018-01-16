@@ -19,7 +19,7 @@ include("include/Menu.php");
 	<a class="bouton" href="GestionAdhListes.php">Listes d'appels</a>
 
 	<?php
-		$reponse = $bdd->query('SELECT * FROM Adherent ORDER BY Nom');
+		$reponse = $bdd->query('SELECT * FROM adherent ORDER BY Nom');
 	?>
 	<table>
 	<caption>Les adhérents de Temps Danse 65</caption>
@@ -31,7 +31,7 @@ include("include/Menu.php");
 		while ($donnees = $reponse->fetch())
 {
 	$NumAdh=$donnees['NumAdh'];
-	$cours=$bdd->query("SELECT `Discipline`, `Niveau` FROM Classe WHERE NumAdh=$NumAdh");
+	$cours=$bdd->query("SELECT `Discipline`, `Niveau` FROM classe WHERE NumAdh=$NumAdh");
 ?>
 <tr>
 <td><?php echo $donnees['Nom']; ?></td>

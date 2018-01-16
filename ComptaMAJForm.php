@@ -1,7 +1,7 @@
 <?php
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 $Id=$_POST['Ligne'];
 $Action=$_POST['Action'];
 ?>
@@ -50,7 +50,7 @@ $Action=$_POST['Action'];
             $reponse->closeCursor();
             ?>
             </select>
-            
+
         <p><strong>Moyen de Paiement : </strong></p>
         <select name="ModePaiement">
           <?php

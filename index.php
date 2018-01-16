@@ -60,7 +60,7 @@ include("include/Menu.php");
 						<table>
 							<caption>Comptabilité</caption>
 							<tbody>
-								<tr><th>Ligne comptable</th><th>Date</th><th>Montant</th></tr>
+								<tr><th>Ligne comptable</th><th>Date</th><th>Montant</th><th>Action</th></tr>
 								<?php
 								$reponse=$bdd->query('SELECT * FROM `alertecompta` WHERE DATE_SUB(CURRENT_DATE, INTERVAL 2 MONTH)<`Date`AND DATE_ADD(CURRENT_DATE, INTERVAL 3 MONTH)>`Date` ORDER BY `Date` ');
 								while ($donnees = $reponse->fetch()){ //PROBLEME : ON A TOUJOURS LA PREMIERE ALERTE QUAND ON RECUPERE LES DONNEES DANS LE COMPTABDD !!!!!!!

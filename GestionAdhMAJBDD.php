@@ -11,8 +11,7 @@ $NumAdh=$_GET['Num']; ?>
 	<?php
 	if(isset($_POST['Supprimer']))
 	{
-		if($_POST['Confirmer']=='OUI')
-		{
+		if($_POST['Confirmer']=='OUI') {
 			$bdd->query("DELETE FROM Adherent WHERE `NumAdh`=$NumAdh");
 			$bdd->query("DELETE FROM alerteadh WHERE NumAdh=$NumAdh");
 			echo "Adhérent supprimé";
