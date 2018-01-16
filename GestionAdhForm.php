@@ -3,7 +3,7 @@
 // Il reste à regler un problème d'affichage en CSS (le formulaire est un peu étriqué et la couleur de fond s'arrête avant la fin)
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 ?>
 <div>Vous êtes ici : <a href="index.php">Accueil</a> - <a href="GestionAdh.php">Gestion Adhérent</a>- Inscription Adhérent</div>
 

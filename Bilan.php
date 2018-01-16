@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <meta charset="utf-8"/>
   <title>Compt'Temps Danse</title>
-  <?php $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+  <?php include("include/ConnexionBDD.php");
   $Annee=2018;?>
 </head>
 

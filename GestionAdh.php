@@ -5,11 +5,11 @@
 */
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 ?>
 <!-- FIL D'ARIANNE -->
 <div>Vous êtes ici : <a href="index.html">Accueil</a> - Gestion Adhérent</div>
-	
+
 <section>
 
 	<h2>Gestion des adhérents</h2>
@@ -20,7 +20,7 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 
 	<?php
 		$reponse = $bdd->query('SELECT * FROM Adherent ORDER BY Nom');
-	?> 
+	?>
 	<table>
 	<caption>Les adhérents de Temps Danse 65</caption>
 	<tbody>
@@ -45,12 +45,12 @@ $bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
 <td><?php echo $donnees['Montant']; ?></td></tr>
 <?php
 }
-$cours->closeCursor(); 
+$cours->closeCursor();
 $reponse->closeCursor(); // Termine le traitement de la requête
 ?>
 </tbody></table>
-				
+
 </section>
 <?php include("include/Footer.php");?>
 </body>
-</html>	
+</html>

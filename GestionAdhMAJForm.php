@@ -1,7 +1,7 @@
 <?php
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 $NumAdh=$_POST['Adh'];
 ?>
 <div>Vous êtes ici : <a href="index.php">Accueil</a> - <a href="GestionAdh.php">Gestion Adhérent</a> - Mise à Jour 2</div>

@@ -1,6 +1,6 @@
 <?php include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');?>
+?>
 <div>Vous êtes ici : <a href="index.html">Accueil</a> - Comptabilité </div>
 
 <section>

@@ -2,7 +2,7 @@
 session_start();
 include('include/Head.php');
 include('include/Menu.php');
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 ?>
 
 <div>Vous êtes ici : <a href='index.php'>Accueil</a> - Supprimer Alerte</div>

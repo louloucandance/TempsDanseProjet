@@ -1,7 +1,7 @@
 Frequence<?php
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 ?>
 <div>Vous êtes ici :Accueil</a> - <a href="GestionAdh.html">Gestion Adhérent</a> - Liste d'appel</div>
 

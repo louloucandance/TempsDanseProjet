@@ -2,7 +2,7 @@
 session_start();
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 $_SESSION['Alerte']=false;?>
 
 <div>Vous êtes ici : <a href="index.html">Accueil</a> -Nouvelle ligne compta</div>

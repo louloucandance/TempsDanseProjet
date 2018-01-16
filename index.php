@@ -2,7 +2,7 @@
 include("include/Head.php");
 include("include/Menu.php");
 
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 
 //les alertes font le lien vers l'ajout de lignes comptables préremplies.
 ?>

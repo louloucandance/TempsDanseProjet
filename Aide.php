@@ -61,7 +61,18 @@
 		</details>
 		<details>
 			<summary>J'ai un message d'erreur, que faire ?</summary>
-			<p></p>
+			<p>Bien que conçu pour être le plus souple possible, il existe des situations où le site plantera :
+				<ul>
+					<li>
+						Si vous brulez des étapes lors de l'entrée ou la modification d'une ligne en modifiant l'URL.
+					</li>
+					<li>
+						Si vous actualisez la page alors que c'est une page de confirmation.
+					</li>
+
+				</ul>
+				Si vous respectez le processus et l'ordre logique des choses, vous ne devriez pas avoir de messages d'erreur. </p>
+				<p>Si par malheur vous en aviez tout de même, vérifiez que votre action ne s'est pas déjà réalisée</p>
 		</details>
 		<details>
 			<summary>J'ai fait une erreur en entrant un adhérent, comment la corriger ?</summary>

@@ -1,8 +1,7 @@
 <?php
 try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+{  
+	    $bdd = new PDO('mysql:host=db397652720.db.1and1.com;dbname=db397652720', 'dbo397652720@10.46.135.36', 'Temps!D@nse.65');
 }
 catch(Exception $e)
 {

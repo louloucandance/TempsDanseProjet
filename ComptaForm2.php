@@ -2,7 +2,7 @@
 session_start();
 include("include/Head.php");
 include("include/Menu.php");
-$bdd=new PDO('mysql:host=localhost;dbname=tempsdanse', 'root', '');
+
 
 $_SESSION['NumAlerte']=$_GET['NumAlerte'];
 $NumAlerte=$_SESSION['NumAlerte'];

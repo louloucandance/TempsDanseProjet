@@ -6,7 +6,7 @@
 			<li>
 				<a href="index.php">Accueil</a>
 			</li>
-			
+
 			<li>
 				<a href="Compta.php">Comptabilité</a>
 				<ul>
@@ -31,4 +31,7 @@
 
 		</ul>
 	</nav>
+	<?php
+	include("include/ConnexionBDD.php");
+	?>
 	<br><br>
