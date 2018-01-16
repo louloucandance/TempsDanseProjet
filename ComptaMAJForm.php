@@ -2,7 +2,7 @@
 include("include/Head.php");
 include("include/Menu.php");
 
-$Id=$_POST['Ligne'];
+$IdLigne=$_POST['Ligne'];
 $Action=$_POST['Action'];
 ?>
 <div>Vous êtes ici : <a href="index.html">Accueil</a> - <a href="Compta.php">Comptabilité</a> - Mise à Jour 2</div>
@@ -11,9 +11,9 @@ $Action=$_POST['Action'];
 
   <h2>Comptabilité</h2>
   <h3>Mises à jour Etape 2</h3>
-  <p>Ligne numéro : <?php echo $Id?></p>
+  <p>Ligne numéro : <?php echo $IdLigne?></p>
   <?php
-  $Ligne=$bdd->query("SELECT * FROM `compta` WHERE `Id`=$Id");
+  $Ligne=$bdd->query("SELECT * FROM `compta` WHERE `Id`=$IdLigne");
   while($ligne=$Ligne->fetch())
   {
     $Motif=$ligne['Motif'];
@@ -26,7 +26,8 @@ $Action=$_POST['Action'];
     $Commentaire=$ligne['Commentaire'];
   }
   ?>
-  <form method="post" action="ComptaMAJBDD.php?Num=<?php echo $Id;?>">
+  <form method="post" action="ComptaMAJBDD.php">
+    <input type="hidden" name="Num" value="<?php echo $IdLigne;?>"/>
     <?php
     if ($Action=='Modifier') {
       ?>

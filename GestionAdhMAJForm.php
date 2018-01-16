@@ -11,7 +11,8 @@ $NumAdh=$_POST['Adh'];
 	<h2>Gestion des adhérents</h2>
 	<h3>Mises à jour Etape 2</h3>
 	<p>Adhérent numéro : <?php echo $NumAdh?></p>
-	<form method="post" action="GestionAdhMAJBDD.php?Num=<?php echo $NumAdh;?>">
+	<form method="post" action="GestionAdhMAJBDD.php">
+		<input type="hidden" value="<?php echo $NumAdh;?>" name="NumAdh"/>
 	<?php
 	if(isset($_POST['typeAdmin']))
 	{ ?>
