@@ -13,7 +13,7 @@ include("include/Menu.php");
 	<a class="bouton" href="ComptaListes.php">Ma comptabilité</a>
 
 	<!--BILAN :-->
-	<a class="bouton" href="Bilan.php" target="_blank">Produire le bilan</a>
+	<a class="bouton" href="../Bilan.php" target="_blank">Produire le bilan</a>
 
 	<?php
 	$reponse = $bdd->query('SELECT * FROM `compta` ORDER BY `Date` DESC'); //Ordre décroissant des dates, ca doit etre DESC mas o menos

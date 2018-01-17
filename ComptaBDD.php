@@ -27,7 +27,7 @@ include("include/Menu.php");
 	$Requete->closeCursor();
 	$IdNb=$IdResultNb["COUNT(*)"];
 	if($IdNb!=0){
-		throw new Exception("  Il y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.  ", 1);
+		throw new Exception("  Il y a $IdNb ligne(s) déjà répondant à ces critères, il se peut qu'elle soit déjà entrée, et nous vous conseillons de vérifier dans le tableau sa présence.", 1);
 	}
 	$bdd->query("INSERT INTO `compta`(`Motif`, `Montant`, `Type`, `Frequence`, `Date`) VALUES ('$Motif',$Montant,'$Type','$Frequence','$Date')");
 	$Reponse = $bdd->query("SELECT `Id` FROM `compta` WHERE `Motif`='$Motif' AND `Date`='$Date' AND `Montant`='$Montant' AND Frequence='$Frequence' AND Type='$Type'");
@@ -44,15 +44,16 @@ include("include/Menu.php");
 	if(isset($_POST["MoyenPaiement"]))	{
 		$MoyenPaiement=$_POST["MoyenPaiement"];
 		$bdd->query("UPDATE `compta` SET `ModePaiement`='$MoyenPaiement' WHERE `Id`=$Id");
-		echo "<p>Moyen de paiement $MoyenPaiement ajouté !</p>";
 	}
 	if(isset($_POST["Categorie"])){
 		$Categorie=$_POST["Categorie"];
 		$bdd->query("UPDATE `compta` SET `Categorie`='$Categorie' WHERE Id=$Id");
-		echo "<p>Catégorie $Categorie ajoutée !</p>";
 	}
 	?>
-	<p><a href="ComptaForm.php">Nouvelle ligne</a> - <a href="Compta.php">Ma comptabilité</a> - <a href="ComptaMAJ.php">Mettre à jour une ligne</a> </p>
+	<a class="bouton" href="ComptaForm.php">Nouvelle ligne</a>
+	<a class="bouton" href="ComptaMAJ.php">Corriger ma comptabilité</a>
+	<a class="bouton" href="ComptaListes.php">Ma comptabilité</a>
+	<a class="bouton" href="index.php">Accueil</a>
 </section>
 <?php
 $IdLigne=$Id;

@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="./CSS/Bilan.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="Compta/CSS/Bilan.css" media="all" />
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <meta charset="utf-8"/>
   <title>Compt'Temps Danse</title>
-  <?php include("include/ConnexionBDD.php");
+  <?php include("Compta/include/ConnexionBDD.php");
   $Annee=2018;?>
 </head>
 
 <body>
   <table>
-    <caption>Bilan</caption>
+    <caption><a href="http://api.pdflayer.com/api/convert?access_key=87fd17e153e7a1ce6337e6295cc60b52&document_url=http://tempsdanse65.fr/Bilan.php&page_size=A4">Bilan</caption>
     <thead>
       <tr><th><?php echo $Annee;?></th><th>Catégorie</th><th>Janvier</th>
         <th>Février</th><th>Mars</th><th>Avril</th><th>Mai</th><th>Juin</th>
