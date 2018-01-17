@@ -1,0 +1,7 @@
+AuthName "Site de comptabilité de Temps Danse 65"
+
+AuthType Basic
+
+AuthUserFile "/homepages/36/d253494254/htdocs/tempsdanse/Compta/.htpasswd"
+
+Require valid-user
