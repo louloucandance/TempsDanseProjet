@@ -54,7 +54,10 @@ include("include/Menu.php");
 		?>
 
 		<!-- <p>Montant enregistré !</p>-->
-	<p><a href="GestionAdhForm.php">Enregistrer un nouvel adhérent</a> - <a href="GestionAdh.php">Gestion des adhérents</a> - <a href="GestionAdhMAJ.php">Mettre à jour un adhérent</a> </p>
+		<a class="bouton" href="GestionAdhForm.php">Nouvel Adhérent</a>
+		<a class="bouton" href="GestionAdhMAJ.php">Corriger un adhérent</a>
+		<a class="bouton" href="GestionAdhListes.php">Listes d'appellant</a>
+		<a class="bouton" href="index.php">Accueil</a>
 	</section>
 	<?php include("include/Footer.php");?>
 </body>
